@@ -3,5 +3,5 @@
 //
 
 int ex2() {
-
+	return 0;
 }
