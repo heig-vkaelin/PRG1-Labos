@@ -17,6 +17,7 @@ Compilateur : Mingw-w64 g++ 8.1.0
  * std:oct si autorisé > http://www.cplusplus.com/reference/ios/oct/
  * logique si non-autorisé >
  * https://www.programiz.com/cpp-programming/examples/octal-decimal-convert
+ * Reverse number: https://www.programiz.com/cpp-programming/examples/reverse-number
  */
 
 #include <cstdlib>
