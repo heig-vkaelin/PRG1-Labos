@@ -35,18 +35,26 @@ int ex1() {
 	unsigned int entierOctale = 0;
 	unsigned int entierDec = entierDecimal;
 	unsigned int positionDecimale = 1;
+	bool estPalindrome;
 
-	if (entierDecimal < BASE){
-		cout 	<< entierDecimal << " en base 8 vaut " << entierDecimal << endl
-				 << entierDecimal << " est un palindrome" << endl;
-	} else {
+	estPalindrome = entierDecimal < 10;
+
+	if (entierDecimal > BASE) {
+
 		while (entierDec != 0) {
 			reste = entierDec % BASE;
 			entierDec /= BASE;
 			entierOctale += reste * positionDecimale;
 			positionDecimale *= 10;
 		}
-		cout  << entierDecimal << " vaut " << entierOctale;
+		
+		// Logique palindrome
+
+	}
+
+	cout 	<< entierDecimal << " en base 8 vaut " << entierOctale << endl;
+	if (estPalindrome) {
+		cout << entierDecimal << " est un palindrome" << endl;
 	}
 	return EXIT_SUCCESS;
 }
