@@ -27,35 +27,47 @@ using namespace std;
 
 int ex1() {
 	unsigned int entierDecimal;
-	const unsigned int BASE = 8;
+	const unsigned int BASE_OCTALE = 8;
+	const unsigned int BASE_DECIMALE = 10;
 
 	cout << "Veuillez saisir un entier positif 'n': " << endl;
 	cin >> entierDecimal;
 
-	unsigned int reste;
+	const unsigned int ENTIER_INITIAL = entierDecimal;
+
 	unsigned int entierOctale = 0;
-	unsigned int entierDec = entierDecimal;
-	unsigned int positionDecimale = 1;
 	bool estPalindrome;
 
-	estPalindrome = entierDecimal < 10;
+	estPalindrome = ENTIER_INITIAL < 10;
 
-	if (entierDecimal > BASE) {
+	if (ENTIER_INITIAL > BASE_OCTALE) {
+		unsigned int retenue;
+		unsigned int positionDecimale = 1;
 
-		while (entierDec != 0) {
-			reste = entierDec % BASE;
-			entierDec /= BASE;
-			entierOctale += reste * positionDecimale;
+		while (entierDecimal != 0) {
+			retenue = entierDecimal % BASE_OCTALE;
+			entierDecimal /= BASE_OCTALE;
+			entierOctale += retenue * positionDecimale;
 			positionDecimale *= 10;
 		}
-		
-		// Logique palindrome
+	}
+	entierDecimal = ENTIER_INITIAL;
 
+	if (!estPalindrome) {
+		unsigned int retenue;
+		unsigned int entierInverse= 0;
+
+		while (entierDecimal != 0) {
+			retenue = entierDecimal % BASE_DECIMALE;
+			entierInverse = entierInverse * BASE_DECIMALE + retenue;
+			entierDecimal /= BASE_DECIMALE;
+		}
+		estPalindrome = entierInverse == ENTIER_INITIAL;
 	}
 
-	cout 	<< entierDecimal << " en base 8 vaut " << entierOctale << endl;
+	cout 	<< ENTIER_INITIAL << " en base 8 vaut " << entierOctale << endl;
 	if (estPalindrome) {
-		cout << entierDecimal << " est un palindrome" << endl;
+		cout << ENTIER_INITIAL << " est un palindrome" << endl;
 	}
 	return EXIT_SUCCESS;
 }
