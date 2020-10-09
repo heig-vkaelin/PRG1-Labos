@@ -9,7 +9,7 @@ Description    : Programme demandant la saisie à l'utilisateur d'un numéro de 
                  trouver sur une grille de 8x8.
                  Le programme détermine et affiche ensuite le numéro de case de
                  plusieurs symétries par rapport à la case entrée par l'utilisateur:
-                 - La symétrie par rapport à l'axe horitontal
+                 - La symétrie par rapport à l'axe horizontal
                  - La symétrie par rapport à l'axe vertical
                  - La symétrie par rapport à la diagonale gauche
                  - La symétrie par rapport à la diagonale droite
@@ -71,14 +71,14 @@ int ex2() {
 											colSymetrieDiagonaleDroite + 1;
 
 	cout << "Numéro de case choisi: " << NUMERO_CASE_CHOISI << endl
-		  << "Case symétrique par rapport à l'axe horizontal: " << symetrieHorizontale
-		  << endl
-		  << "Case symétrique par rapport à l'axe vertical: " << symetrieVerticale
-		  << endl
-		  << "Case symétrique par rapport à la diagonale gauche: " <<
-		  symetrieDiagonaleGauche << endl
-		  << "Case symétrique par rapport à la diagonale droite: " <<
-		  symetrieDiagonaleDroite << endl;
+		  << "Case symétrique par rapport à l'axe horizontal: "
+		  << symetrieHorizontale << endl
+		  << "Case symétrique par rapport à l'axe vertical: "
+		  << symetrieVerticale << endl
+		  << "Case symétrique par rapport à la diagonale gauche: "
+		  << symetrieDiagonaleGauche << endl
+		  << "Case symétrique par rapport à la diagonale droite: "
+		  << symetrieDiagonaleDroite << endl;
 
 	return EXIT_SUCCESS;
 }
