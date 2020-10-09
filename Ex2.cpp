@@ -33,7 +33,7 @@ Compilateur    : Mingw-w64 g++ 8.1.0
 
 using namespace std;
 
-int ex2() {
+int main() {
 	const int TAILLE_DAMIER = 8;
 	int caseChoisie;
 

@@ -33,7 +33,7 @@ Compilateur    : Mingw-w64 g++ 8.1.0
 
 using namespace std;
 
-int ex1() {
+int main() {
 	const unsigned int BASE_OCTALE = 8;
 	const unsigned int BASE_DECIMALE = 10;
 	unsigned int entierDecimal;
