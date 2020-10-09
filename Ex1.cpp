@@ -10,6 +10,7 @@ Description    : Programme demandant la saisie à l'utilisateur d'un entier "n".
                  affiche les résultats des opérations à l'écran.
 
 Remarque(s)    : On suppose la saisie utilisateur correcte.
+                 On suppose également que std::oct n'est pas autorisé.
 
                  La boucle while est autorisée mais les concepts de tableau ainsi
                  que de chaîne de caractères ne le sont pas.
