@@ -1,7 +1,7 @@
 /*
 -----------------------------------------------------------------------------------
 Nom du fichier : Ex1.cpp
-Auteur(s)      : Valentin Kaelin, Jonathan Friedli, Lazar Pavicevic
+Auteur(s)      : Jonathan Friedli, Valentin Kaelin, Lazar Pavicevic
 Date creation  : 09.10.2020
 
 Description    : Programme demandant la saisie à l'utilisateur d'un entier "n".
