@@ -74,7 +74,7 @@ int ex1() {
 
 	estPalindrome = ENTIER_INITIAL < BASE_DECIMALE;
 
-	if (!estPalindrome) {
+	if (ENTIER_INITIAL >= BASE_DECIMALE) {
 		unsigned int reste;
 		// Utilisation d'un unsigned long long car un débordement est possible lorsque
 		// de grosses valeurs sont insérées (ex: 2'000'000'009 -> 9'000'000'002)
