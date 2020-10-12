@@ -35,6 +35,7 @@ using namespace std;
 
 int main() {
 	const int TAILLE_DAMIER = 8;
+	const int DECALAGE = 1;
 	int caseChoisie;
 
 	cout << "Veuillez saisir un numéro de case [1-64] : " << endl;
@@ -43,32 +44,33 @@ int main() {
 
 	// Décrémentation de la case car la numérotation de la grille commence à 1
 	// Exemple: la case à la ligne 0 et à la colonne 0 a la valeur 1
-	caseChoisie--;
+	caseChoisie -= DECALAGE;
 
 	int colonneCase = caseChoisie % TAILLE_DAMIER;
 	int ligneCase = (caseChoisie - colonneCase) / TAILLE_DAMIER;
 
 	// Axe horizontal:
-	// Ligne: complément à 8 de la ligne, colonne: ne change pas
+	// Ligne: opposé de la ligne (ex : ligne 2 -> ligne 5), colonne: ne change pas
 	int ligneSymetrieHorizontale = TAILLE_DAMIER - ligneCase - 1;
-	int symetrieHorizontale = ligneSymetrieHorizontale * TAILLE_DAMIER +
-									  colonneCase + 1;
+	int symetrieHorizontale =
+		ligneSymetrieHorizontale * TAILLE_DAMIER + colonneCase + DECALAGE;
 
 	// Axe vertical:
-	// Ligne: ne change pas, colonne: complément à 8 de la colonne
+	// Ligne: ne change pas, colonne: opposé de la colonne
 	int colSymetrieVerticale = TAILLE_DAMIER - colonneCase - 1;
-	int symetrieVerticale = ligneCase * TAILLE_DAMIER + colSymetrieVerticale + 1;
+	int symetrieVerticale =
+		ligneCase * TAILLE_DAMIER + colSymetrieVerticale + DECALAGE;
 
 	// Diagonale gauche:
 	// Inversion entre la ligne et la colonne
-	int symetrieDiagonaleGauche = colonneCase * TAILLE_DAMIER + ligneCase + 1;
+	int symetrieDiagonaleGauche = colonneCase * TAILLE_DAMIER + ligneCase + DECALAGE;
 
 	// Diagonale droite:
-	// Ligne: complément à 8 de la colonne, colonne: complément à 8 de la ligne
+	// Ligne: opposé de la colonne, colonne: opposé de la ligne
 	int ligneSymetrieDiagonaleDroite = TAILLE_DAMIER - colonneCase - 1;
 	int colSymetrieDiagonaleDroite = TAILLE_DAMIER - ligneCase - 1;
 	int symetrieDiagonaleDroite = ligneSymetrieDiagonaleDroite * TAILLE_DAMIER +
-											colSymetrieDiagonaleDroite + 1;
+											colSymetrieDiagonaleDroite + DECALAGE;
 
 	cout << "Numéro de case choisi: " << NUMERO_CASE_CHOISI << endl
 		  << "Case symétrique par rapport à l'axe horizontal: "
