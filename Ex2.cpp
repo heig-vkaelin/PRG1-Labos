@@ -69,8 +69,8 @@ int main() {
 	// Ligne: opposé de la colonne, colonne: opposé de la ligne
 	int ligneSymetrieDiagonaleDroite = TAILLE_DAMIER - colonneCase - 1;
 	int colSymetrieDiagonaleDroite = TAILLE_DAMIER - ligneCase - 1;
-	int symetrieDiagonaleDroite = ligneSymetrieDiagonaleDroite * TAILLE_DAMIER +
-											colSymetrieDiagonaleDroite + DECALAGE;
+	int symetrieDiagonaleDroite = ligneSymetrieDiagonaleDroite *
+		TAILLE_DAMIER + colSymetrieDiagonaleDroite + DECALAGE;
 
 	cout << "Numéro de case choisi: " << NUMERO_CASE_CHOISI << endl
 		  << "Case symétrique par rapport à l'axe horizontal: "
