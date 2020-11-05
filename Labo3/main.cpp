@@ -1,6 +1,8 @@
 #include <iostream>
+#include "affichage.h"
+#include "logique.h"
 
 int main() {
-	std::cout << "Hello, World Labo 3!" << std::endl;
+	hello();
 	return 0;
 }
