@@ -33,3 +33,11 @@ unsigned nbJoursParMois(unsigned noMois, unsigned annee) {
 			return 31;
 	}
 }
+
+bool comparaisonDates(unsigned moisDebut, unsigned anneeDebut, unsigned
+moisFin, unsigned anneeFin){
+	if (anneeDebut * 12 + moisDebut < anneeFin * 12 + moisFin){
+		return true;
+	}
+	return false;
+}

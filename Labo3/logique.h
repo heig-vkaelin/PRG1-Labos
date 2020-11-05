@@ -30,4 +30,15 @@ bool estBissextile(unsigned annee);
  */
 unsigned nbJoursParMois(unsigned noMois, unsigned annee);
 
+/**
+ * Verifie que la date de fin soit plus grande que la date de début.
+ * @param moisDebut
+ * @param anneeDebut
+ * @param moisFin
+ * @param anneeFin
+ * @return true si la date de fin est plus grande que la date de début
+ */
+bool comparaisonDates(unsigned moisDebut, unsigned anneeDebut, unsigned
+moisFin, unsigned anneeFin);
+
 #endif //LABO3_LOGIQUE_H
