@@ -17,7 +17,8 @@ Compilateur : Mingw-w64 g++ 8.1.0
 
 using namespace std;
 
-bool verifierDateDansIntervalle(unsigned mois, unsigned annee) {
+// Note(Lazar): A mettre dans logique.cpp ??
+bool dateDansIntervalle(unsigned mois, unsigned annee) {
 	unsigned int MOIS_BORNE_INFERIEURE = 1;
 	unsigned int MOIS_BORNE_SUPERIEURE = 12;
 	unsigned int ANNEE_BORNE_INFERIEURE = 1900;
@@ -27,8 +28,8 @@ bool verifierDateDansIntervalle(unsigned mois, unsigned annee) {
 			 annee >= ANNEE_BORNE_INFERIEURE && annee <= ANNEE_BORNE_SUPERIEURE;
 }
 
-bool dateDebutAvantFin(unsigned moisDebut, unsigned moisFin, unsigned
-anneeDebut, unsigned anneeFin) {
+bool dateDebutAvantFin(unsigned moisDebut, unsigned moisFin, unsigned anneeDebut,
+							  unsigned anneeFin) {
 	if (anneeDebut * 12 + moisDebut <= anneeFin * 12 + moisFin) {
 		return true;
 	}
@@ -43,7 +44,7 @@ void saisirDate(bool estDateDeDebut, unsigned &mois, unsigned &annee) {
 	do {
 		cout << "Entrez la date de" << (estDateDeDebut ? " debut" : " fin")
 			  << " [mm aaaa] :";
-		saisieOK = cin >> mois >> annee && verifierDateDansIntervalle(mois, annee);
+		saisieOK = cin >> mois >> annee && dateDansIntervalle(mois, annee);
 		if (!saisieOK) {
 			cin.clear();
 			cout << "Date non valide. Veuillez SVP recommencer." << endl;
@@ -52,8 +53,8 @@ void saisirDate(bool estDateDeDebut, unsigned &mois, unsigned &annee) {
 	} while (!saisieOK);
 }
 
-void afficherDemandesDeSaisie(unsigned &moisDebut, unsigned &moisFin, unsigned
-&anneeDebut, unsigned &anneeFin) {
+void afficherDemandesDeSaisie(unsigned &moisDebut, unsigned &moisFin,
+										unsigned &anneeDebut, unsigned &anneeFin) {
 	do {
 		saisirDate(true, moisDebut, anneeDebut);
 		saisirDate(false, moisFin, anneeFin);

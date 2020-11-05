@@ -19,10 +19,10 @@ bool verifierDateDansIntervalle(unsigned mois, unsigned annee);
 
 void saisirDate(bool estDateDeDebut, unsigned int &mois, unsigned int &annee);
 
-bool dateDebutAvantFin(unsigned moisDebut, unsigned moisFin, unsigned
-anneeDebut, unsigned anneeFin);
+bool dateDebutAvantFin(unsigned moisDebut, unsigned moisFin, unsigned anneeDebut,
+							  unsigned anneeFin);
 
-void afficherDemandesDeSaisie(unsigned &moisDebut, unsigned &moisFin, unsigned
-&anneeDebut, unsigned &anneeFin);
+void afficherDemandesDeSaisie(unsigned &moisDebut, unsigned &moisFin,
+										unsigned &anneeDebut, unsigned &anneeFin);
 
 #endif //LABO3_AFFICHAGE_H
