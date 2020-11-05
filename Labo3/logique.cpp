@@ -34,10 +34,12 @@ unsigned nbJoursParMois(unsigned noMois, unsigned annee) {
 	}
 }
 
-bool comparaisonDates(unsigned moisDebut, unsigned anneeDebut, unsigned
-moisFin, unsigned anneeFin){
-	if (anneeDebut * 12 + moisDebut < anneeFin * 12 + moisFin){
-		return true;
-	}
-	return false;
+unsigned nbMoisEntreDeuxDates(unsigned moisDebut, unsigned moisFin, unsigned
+anneeDebut, unsigned anneeFin) {
+	unsigned debut = anneeDebut * 12 + moisDebut;
+	unsigned fin = anneeFin * 12 + moisFin;
+
+	// Mois de début et de fin compris
+	return fin - debut + 1;
 }
+

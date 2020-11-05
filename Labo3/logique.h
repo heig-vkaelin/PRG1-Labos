@@ -18,7 +18,7 @@ Compilateur : Mingw-w64 g++ 8.1.0
 /**
  * Détermine si une année est bissextile ou pas
  * @param annee
- * @return vrai si l'année est bissextile, faux autrement
+ * @return true si l'année est bissextile, false autrement
  */
 bool estBissextile(unsigned annee);
 
@@ -30,15 +30,17 @@ bool estBissextile(unsigned annee);
  */
 unsigned nbJoursParMois(unsigned noMois, unsigned annee);
 
-/**
- * Verifie que la date de fin soit plus grande que la date de début.
- * @param moisDebut
- * @param anneeDebut
- * @param moisFin
- * @param anneeFin
- * @return true si la date de fin est plus grande que la date de début
- */
-bool comparaisonDates(unsigned moisDebut, unsigned anneeDebut, unsigned
-moisFin, unsigned anneeFin);
+
+ /**
+  * Détermine le nombre de mois (bornes comprises) entre deux dates
+  * La fonction ne vérifie pas que la date de début soit bien avant celle de fin.
+  * @param moisDebut : mois de début, compris dans le résultat final
+  * @param moisFin : mois de fin, compris dans le résultat final
+  * @param anneeDebut : année de début
+  * @param anneeFin : année de fin
+  * @return true si la date de fin est plus grande que la date de début
+  */
+unsigned nbMoisEntreDeuxDates(unsigned moisDebut, unsigned moisFin, unsigned
+anneeDebut, unsigned anneeFin);
 
 #endif //LABO3_LOGIQUE_H
