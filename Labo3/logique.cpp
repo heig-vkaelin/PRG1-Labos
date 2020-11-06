@@ -43,3 +43,13 @@ anneeDebut, unsigned anneeFin) {
 	return fin - debut + 1;
 }
 
+bool dateDansIntervalle(unsigned mois, unsigned annee) {
+	unsigned int MOIS_BORNE_INFERIEURE = 1;
+	unsigned int MOIS_BORNE_SUPERIEURE = 12;
+	unsigned int ANNEE_BORNE_INFERIEURE = 1900;
+	unsigned int ANNEE_BORNE_SUPERIEURE = 2100;
+
+	return mois >= MOIS_BORNE_INFERIEURE && mois <= MOIS_BORNE_SUPERIEURE &&
+			 annee >= ANNEE_BORNE_INFERIEURE && annee <= ANNEE_BORNE_SUPERIEURE;
+}
+

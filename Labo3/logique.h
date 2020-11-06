@@ -43,4 +43,6 @@ unsigned nbJoursParMois(unsigned noMois, unsigned annee);
 unsigned nbMoisEntreDeuxDates(unsigned moisDebut, unsigned moisFin, unsigned
 anneeDebut, unsigned anneeFin);
 
+bool dateDansIntervalle(unsigned mois, unsigned annee);
+
 #endif //LABO3_LOGIQUE_H

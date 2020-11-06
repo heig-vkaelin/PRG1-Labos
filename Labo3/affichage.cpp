@@ -14,19 +14,10 @@ Compilateur : Mingw-w64 g++ 8.1.0
 
 #include <cstdlib>
 #include <iostream>
+#include "logique.h"
 
 using namespace std;
 
-// Note(Lazar): A mettre dans logique.cpp ??
-bool dateDansIntervalle(unsigned mois, unsigned annee) {
-	unsigned int MOIS_BORNE_INFERIEURE = 1;
-	unsigned int MOIS_BORNE_SUPERIEURE = 12;
-	unsigned int ANNEE_BORNE_INFERIEURE = 1900;
-	unsigned int ANNEE_BORNE_SUPERIEURE = 2100;
-
-	return mois >= MOIS_BORNE_INFERIEURE && mois <= MOIS_BORNE_SUPERIEURE &&
-			 annee >= ANNEE_BORNE_INFERIEURE && annee <= ANNEE_BORNE_SUPERIEURE;
-}
 
 bool dateDebutAvantFin(unsigned moisDebut, unsigned moisFin, unsigned anneeDebut,
 							  unsigned anneeFin) {
@@ -44,7 +35,14 @@ void saisirDate(bool estDateDeDebut, unsigned &mois, unsigned &annee) {
 	do {
 		cout << "Entrez la date de" << (estDateDeDebut ? " debut" : " fin")
 			  << " [mm aaaa] :";
-		saisieOK = cin >> mois >> annee && dateDansIntervalle(mois, annee);
+
+		if (cin.peek() != '\n') {
+			saisieOK = cin >> noskipws >> mois >> skipws >> annee &&
+				dateDansIntervalle(mois, annee);
+		} else {
+			saisieOK = false;
+		}
+
 		if (!saisieOK) {
 			cin.clear();
 			cout << "Date non valide. Veuillez SVP recommencer." << endl;
