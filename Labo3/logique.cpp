@@ -66,13 +66,15 @@ bool dateDebutAvantFin(unsigned moisDebut, unsigned moisFin, unsigned anneeDebut
 }
 
 unsigned jourDeLaSemaine(unsigned jour, unsigned mois, unsigned annee) {
-	unsigned cumulFevrier = 2;
+	unsigned compensationFevrier = 2; //On compense le fait que février n'a que 28
+	// jours.
 	if (mois < 3) {
 		annee--;
-		cumulFevrier = 4;
+		compensationFevrier = 4;
 	}
-	return (23 * mois / 9 + jour + cumulFevrier + annee + annee / 4 - annee / 100 +
-			  annee / 400) % 7;
+	return
+		(23 * mois / 9 + jour + compensationFevrier + annee + annee / 4 - annee / 100 +
+		 annee / 400) % 7;
 }
 
 char lettreJourDeLaSemaine(unsigned jour) {
