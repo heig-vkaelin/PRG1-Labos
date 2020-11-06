@@ -72,6 +72,27 @@ unsigned jourDeLaSemaine(unsigned jour, unsigned mois, unsigned annee) {
 		cumulFevrier = 4;
 	}
 	return (23 * mois / 9 + jour + cumulFevrier + annee + annee / 4 - annee / 100 +
-			 annee / 400) % 7;
+			  annee / 400) % 7;
 }
+
+char lettreJourDeLaSemaine(unsigned jour) {
+	switch (jour) {
+		case 0:
+			return 'D';
+		case 1:
+			return 'L';
+		case 2:
+		case 3:
+			return 'M';
+		case 4:
+			return 'J';
+		case 5:
+			return 'V';
+		case 6:
+			return 'S';
+		default:
+			return ' ';
+	}
+}
+
 

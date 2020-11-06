@@ -27,4 +27,6 @@ void afficherDemandesDeSaisie(unsigned &moisDebut, unsigned &moisFin,
 
 bool relancerProgramme();
 
+void afficherUnMois(unsigned mois, unsigned annee);
+
 #endif //LABO3_AFFICHAGE_H

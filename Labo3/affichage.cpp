@@ -72,3 +72,7 @@ bool relancerProgramme() {
 
 	return saisie == 'n';
 }
+
+void afficherUnMois(unsigned mois, unsigned annee) {
+
+}

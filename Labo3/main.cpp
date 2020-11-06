@@ -1,13 +1,12 @@
 #include <cstdlib>
 #include <iostream>
+#include <iomanip>
 #include "affichage.h"
 #include "logique.h"
 
 using namespace std;
 
 int main() {
-	bool quitterLeProgramme;
-
 	do {
 		// Valeurs pour tester rapidement
 		//	unsigned moisDebut = 12;
@@ -28,7 +27,16 @@ int main() {
 			cout << "Mois actuel: " << moisActuel << "." << anneeActuelle << " "
 				  << nbJours << " jours - Index: " << i << endl;
 
-			// RESTE DE LA LOGIQUE ICI
+			// afficherUnMois(moisActuel, anneeActuelle);
+			// Fonction Afficher un mois
+			cout << setw(9) << moisActuel << " " << anneeActuelle << endl;
+			// Fonction Afficher jours de la semaine
+			for (int jour = 0; jour < 7; ++jour) {
+				cout << "" << " ";
+			}
+			cout << endl;
+			// Fin Fonction Afficher jours de la semaine
+			// Fin fonction Afficher un mois
 
 			if (moisActuel == 12) {
 				anneeActuelle++;
