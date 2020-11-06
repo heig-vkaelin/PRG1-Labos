@@ -25,4 +25,6 @@ bool dateDebutAvantFin(unsigned moisDebut, unsigned moisFin, unsigned anneeDebut
 void afficherDemandesDeSaisie(unsigned &moisDebut, unsigned &moisFin,
 										unsigned &anneeDebut, unsigned &anneeFin);
 
+bool relancerProgramme();
+
 #endif //LABO3_AFFICHAGE_H

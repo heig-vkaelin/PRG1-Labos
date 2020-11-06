@@ -26,7 +26,7 @@ void saisirDate(bool estDateDeDebut, unsigned &mois, unsigned &annee) {
 
 		if (cin.peek() != '\n') {
 			saisieOK = cin >> noskipws >> mois >> skipws >> annee &&
-				dateDansIntervalle(mois, annee);
+						  dateDansIntervalle(mois, annee);
 		} else {
 			saisieOK = false;
 		}
@@ -50,7 +50,25 @@ void afficherDemandesDeSaisie(unsigned &moisDebut, unsigned &moisFin,
 
 		if (!saisieOk) {
 			cout << "Date de fin plus petite que de date de debut. Veuillez SVP"
-			  " recommencer." << endl;
+					  " recommencer." << endl;
 		}
 	} while (!saisieOk);
+}
+
+bool relancerProgramme() {
+	char saisie;
+	bool saisieOk;
+	do {
+		cout << endl << "Voulez-vous quitter le programme ? [o/n] : ";
+		cin >> saisie;
+		saisieOk = saisie == 'o' || saisie == 'n';
+
+		if (!saisieOk) {
+			cin.clear();
+		}
+
+		cin.ignore(numeric_limits<streamsize>::max(), '\n');
+	} while (!saisieOk);
+
+	return saisie == 'n';
 }

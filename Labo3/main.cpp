@@ -1,3 +1,4 @@
+#include <cstdlib>
 #include <iostream>
 #include "affichage.h"
 #include "logique.h"
@@ -5,32 +6,36 @@
 using namespace std;
 
 int main() {
-	// Valeurs pour tester rapidement
-	//	unsigned moisDebut = 12;
-	//	unsigned anneeDebut = 2015;
-	//	unsigned moisFin = 11;
-	//	unsigned anneeFin = 2021;
+	bool quitterLeProgramme;
 
-	unsigned moisDebut, anneeDebut, moisFin, anneeFin;
-	afficherDemandesDeSaisie(moisDebut, moisFin, anneeDebut, anneeFin);
+	do {
+		// Valeurs pour tester rapidement
+		//	unsigned moisDebut = 12;
+		//	unsigned anneeDebut = 2015;
+		//	unsigned moisFin = 11;
+		//	unsigned anneeFin = 2021;
 
-	unsigned nbMois = nbMoisEntreDeuxDates(moisDebut, moisFin, anneeDebut, anneeFin);
+		unsigned moisDebut, anneeDebut, moisFin, anneeFin;
+		afficherDemandesDeSaisie(moisDebut, moisFin, anneeDebut, anneeFin);
 
-	unsigned anneeActuelle = anneeDebut;
-	for (unsigned i = 0; i < nbMois; ++i) {
-		unsigned moisActuel = (moisDebut + i - 1) % 12 + 1;
-		unsigned nbJours = nbJoursParMois(moisActuel, anneeActuelle);
+		unsigned nbMois = nbMoisEntreDeuxDates(moisDebut, moisFin, anneeDebut, anneeFin);
 
-		cout << "Mois actuel: " << moisActuel << "." << anneeActuelle << " "
-			  << nbJours << " jours - Index: " << i << endl;
+		unsigned anneeActuelle = anneeDebut;
+		for (unsigned i = 0; i < nbMois; ++i) {
+			unsigned moisActuel = (moisDebut + i - 1) % 12 + 1;
+			unsigned nbJours = nbJoursParMois(moisActuel, anneeActuelle);
 
-		// RESTE DE LA LOGIQUE ICI
+			cout << "Mois actuel: " << moisActuel << "." << anneeActuelle << " "
+				  << nbJours << " jours - Index: " << i << endl;
 
-		if (moisActuel == 12) {
-			anneeActuelle++;
+			// RESTE DE LA LOGIQUE ICI
+
+			if (moisActuel == 12) {
+				anneeActuelle++;
+			}
 		}
-	}
+	} while(relancerProgramme());
 
 
-	return 0;
+	return EXIT_SUCCESS;
 }
