@@ -15,19 +15,17 @@ Compilateur : Mingw-w64 g++ 8.1.0
 #include <cstdlib>
 #include <iostream>
 #include <iomanip>
-#include <string>
 #include "logique.h"
 
 using namespace std;
 
 void saisirDate(bool estDateDeDebut, unsigned &mois, unsigned &annee) {
 	bool saisieOK;
-	string saisie;
 	do {
 		cout << "Entrez la date de" << (estDateDeDebut ? " debut" : " fin")
 			  << " [mm aaaa] :";
 
-		saisieOK = bool(cin >> noskipws >> mois >> skipws);
+		cin >> noskipws >> mois >> skipws;
 		if (cin.peek() != '\n') {
 			saisieOK = cin >> annee && dateDansIntervalle(mois, annee);
 		} else {
