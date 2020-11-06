@@ -25,15 +25,21 @@ void saisirDate(bool estDateDeDebut, unsigned &mois, unsigned &annee) {
 			  << " [mm aaaa] :";
 
 		if (cin.peek() != '\n') {
-			saisieOK = cin >> noskipws >> mois >> skipws >> annee &&
-						  dateDansIntervalle(mois, annee);
+			saisieOK = bool(cin >> noskipws >> mois >> skipws);
+
+			if (cin.peek() != '\n') {
+				saisieOK = cin >> annee && dateDansIntervalle(mois, annee);
+			}
+			else {
+				saisieOK = false;
+			}
 		} else {
 			saisieOK = false;
 		}
 
 		if (!saisieOK) {
 			cin.clear();
-			cout << "Date non valide. Veuillez SVP recommencer." << endl;
+			cout << "Date non valide. Veuillez SVP recommencer.\n" << endl;
 		}
 		cin.ignore(numeric_limits<streamsize>::max(), '\n');
 	} while (!saisieOK);
@@ -44,13 +50,14 @@ void afficherDemandesDeSaisie(unsigned &moisDebut, unsigned &moisFin,
 	bool saisieOk;
 	do {
 		saisirDate(true, moisDebut, anneeDebut);
+		cout << endl;
 		saisirDate(false, moisFin, anneeFin);
 
 		saisieOk = dateDebutAvantFin(moisDebut, moisFin, anneeDebut, anneeFin);
 
 		if (!saisieOk) {
 			cout << "Date de fin plus petite que de date de debut. Veuillez SVP"
-					  " recommencer." << endl;
+					  " recommencer.\n" << endl;
 		}
 	} while (!saisieOk);
 }
@@ -71,8 +78,4 @@ bool relancerProgramme() {
 	} while (!saisieOk);
 
 	return saisie == 'n';
-}
-
-void afficherUnMois(unsigned mois, unsigned annee) {
-
 }
