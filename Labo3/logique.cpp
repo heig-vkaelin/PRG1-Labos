@@ -66,7 +66,7 @@ bool dateDebutAvantFin(unsigned moisDebut, unsigned moisFin, unsigned anneeDebut
 }
 
 unsigned jourDeLaSemaine(unsigned jour, unsigned mois, unsigned annee) {
-	int cumulFevrier = 2;
+	unsigned cumulFevrier = 2;
 	if (mois < 3) {
 		annee--;
 		cumulFevrier = 4;
