@@ -12,6 +12,8 @@ Compilateur : Mingw-w64 g++ 8.1.0
 -----------------------------------------------------------------------------------
 */
 
+#include <cassert>
+
 bool estBissextile(unsigned annee) {
 	return annee % 400 == 0 || (annee % 4 == 0 && annee % 100 != 0);
 }
@@ -38,6 +40,11 @@ unsigned nbMoisEntreDeuxDates(unsigned moisDebut, unsigned moisFin, unsigned
 anneeDebut, unsigned anneeFin) {
 	unsigned debut = anneeDebut * 12 + moisDebut;
 	unsigned fin = anneeFin * 12 + moisFin;
+
+	// Si la date de début se trouve après la date de fin: arrêt du programme car
+	// problème dans la logique du code. En effet, ce cas ne devrait jamais se
+	// produire grâce aux différents tests réalisés lors de la saisie
+	assert(debut <= fin);
 
 	// Mois de début et de fin compris
 	return fin - debut + 1;
