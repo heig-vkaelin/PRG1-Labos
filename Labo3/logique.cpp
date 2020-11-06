@@ -13,16 +13,18 @@ Compilateur : Mingw-w64 g++ 8.1.0
 */
 
 #include <cassert>
+#include "logique.h"
+
+enum class Mois {
+	JANVIER = 1, FEVRIER, MARS, AVRIL, MAI, JUIN, JUILLET, AOUT,
+	SEPTEMBRE, OCTOBRE, NOVEMBRE, DECEMBRE
+};
 
 bool estBissextile(unsigned annee) {
 	return annee % 400 == 0 || (annee % 4 == 0 && annee % 100 != 0);
 }
 
 unsigned nbJoursParMois(unsigned noMois, unsigned annee) {
-	enum class Mois {
-		JANVIER = 1, FEVRIER, MARS, AVRIL, MAI, JUIN, JUILLET, AOUT,
-		SEPTEMBRE, OCTOBRE, NOVEMBRE, DECEMBRE
-	};
 	switch ((Mois) noMois) {
 		case Mois::FEVRIER:
 			return estBissextile(annee) ? 29 : 28;
@@ -38,8 +40,8 @@ unsigned nbJoursParMois(unsigned noMois, unsigned annee) {
 
 unsigned nbMoisEntreDeuxDates(unsigned moisDebut, unsigned moisFin, unsigned
 anneeDebut, unsigned anneeFin) {
-	unsigned debut = anneeDebut * 12 + moisDebut;
-	unsigned fin = anneeFin * 12 + moisFin;
+	unsigned debut = anneeDebut * MOIS_PAR_ANNEE + moisDebut;
+	unsigned fin = anneeFin * MOIS_PAR_ANNEE + moisFin;
 
 	// Si la date de début se trouve après la date de fin: arrêt du programme car
 	// problème dans la logique du code. En effet, ce cas ne devrait jamais se
@@ -52,7 +54,7 @@ anneeDebut, unsigned anneeFin) {
 
 bool dateDansIntervalle(unsigned mois, unsigned annee) {
 	unsigned int MOIS_BORNE_INFERIEURE = 1;
-	unsigned int MOIS_BORNE_SUPERIEURE = 12;
+	unsigned int MOIS_BORNE_SUPERIEURE = MOIS_PAR_ANNEE;
 	unsigned int ANNEE_BORNE_INFERIEURE = 1900;
 	unsigned int ANNEE_BORNE_SUPERIEURE = 2100;
 
@@ -62,39 +64,28 @@ bool dateDansIntervalle(unsigned mois, unsigned annee) {
 
 bool dateDebutAvantFin(unsigned moisDebut, unsigned moisFin, unsigned anneeDebut,
 							  unsigned anneeFin) {
-	return anneeDebut * 12 + moisDebut <= anneeFin * 12 + moisFin;
+	return anneeDebut * MOIS_PAR_ANNEE + moisDebut <=
+			 anneeFin * MOIS_PAR_ANNEE + moisFin;
 }
 
 unsigned jourDeLaSemaine(unsigned jour, unsigned mois, unsigned annee) {
-	unsigned compensationFevrier = 2; //On compense le fait que février n'a que 28
-	// jours.
+	// On compense le fait que février n'a que 28 jours.
+	unsigned compensationFevrier = 2;
 	if (mois < 3) {
 		annee--;
 		compensationFevrier = 4;
 	}
 	return
 		(23 * mois / 9 + jour + compensationFevrier + annee + annee / 4 - annee / 100 +
-		 annee / 400) % 7;
+		 annee / 400 - 1) % JOURS_PAR_SEMAINE;
 }
 
-char lettreJourDeLaSemaine(unsigned jour) {
-	switch (jour) {
-		case 0:
-			return 'D';
-		case 1:
-			return 'L';
-		case 2:
-		case 3:
-			return 'M';
-		case 4:
-			return 'J';
-		case 5:
-			return 'V';
-		case 6:
-			return 'S';
-		default:
-			return ' ';
+unsigned espacementJourDuMois(unsigned jour, unsigned jourDeLaSemaine) {
+	const unsigned LARGEUR_COLONNE = 3;
+	const unsigned LARGEUR_PREMIERE_COLONNE = 2;
+
+	if (jour == 0) {
+		return jourDeLaSemaine * LARGEUR_COLONNE + LARGEUR_PREMIERE_COLONNE;
 	}
+	return jourDeLaSemaine == 0 ? LARGEUR_PREMIERE_COLONNE : LARGEUR_COLONNE;
 }
-
-

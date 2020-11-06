@@ -15,7 +15,7 @@ Compilateur : Mingw-w64 g++ 8.1.0
 #ifndef LABO3_AFFICHAGE_H
 #define LABO3_AFFICHAGE_H
 
-bool verifierDateDansIntervalle(unsigned mois, unsigned annee);
+#include <string>
 
 void saisirDate(bool estDateDeDebut, unsigned int &mois, unsigned int &annee);
 
@@ -27,6 +27,11 @@ void afficherDemandesDeSaisie(unsigned &moisDebut, unsigned &moisFin,
 
 bool relancerProgramme();
 
-void afficherUnMois(unsigned mois, unsigned annee);
+void afficheJoursSemaine();
+
+std::string nomDuMois(unsigned noMois);
+
+void afficheMois(unsigned mois, unsigned annee, unsigned joursMois,
+					  unsigned &jourDeLaSemaine);
 
 #endif //LABO3_AFFICHAGE_H

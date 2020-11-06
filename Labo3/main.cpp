@@ -1,49 +1,41 @@
 #include <cstdlib>
-#include <iostream>
-#include <iomanip>
 #include "affichage.h"
 #include "logique.h"
 
 using namespace std;
 
+const unsigned JOURS_PAR_SEMAINE = 7;
+const unsigned MOIS_PAR_ANNEE = 12;
+
 int main() {
 	do {
 		// Valeurs pour tester rapidement
-		//	unsigned moisDebut = 12;
-		//	unsigned anneeDebut = 2015;
-		//	unsigned moisFin = 11;
-		//	unsigned anneeFin = 2021;
+//		unsigned moisDebut = 11;
+//		unsigned anneeDebut = 2020;
+//		unsigned moisFin = 1;
+//		unsigned anneeFin = 2021;
 
-		unsigned moisDebut, anneeDebut, moisFin, anneeFin;
+		unsigned moisDebut, moisFin, anneeDebut, anneeFin;
+
 		afficherDemandesDeSaisie(moisDebut, moisFin, anneeDebut, anneeFin);
 
-		unsigned nbMois = nbMoisEntreDeuxDates(moisDebut, moisFin, anneeDebut, anneeFin);
+		unsigned nbMois = nbMoisEntreDeuxDates(moisDebut, moisFin, anneeDebut,
+															anneeFin);
 
 		unsigned anneeActuelle = anneeDebut;
+		unsigned premierJourDuMois = jourDeLaSemaine(1, moisDebut, anneeActuelle);
+		unsigned jourDeLaSemaine = premierJourDuMois;
 		for (unsigned i = 0; i < nbMois; ++i) {
-			unsigned moisActuel = (moisDebut + i - 1) % 12 + 1;
+			unsigned moisActuel = (moisDebut + i - 1) % MOIS_PAR_ANNEE + 1;
 			unsigned nbJours = nbJoursParMois(moisActuel, anneeActuelle);
 
-			cout << "Mois actuel: " << moisActuel << "." << anneeActuelle << " "
-				  << nbJours << " jours - Index: " << i << endl;
+			afficheMois(moisActuel, anneeActuelle, nbJours, jourDeLaSemaine);
 
-			// afficherUnMois(moisActuel, anneeActuelle);
-			// Fonction Afficher un mois
-			cout << setw(9) << moisActuel << " " << anneeActuelle << endl;
-			// Fonction Afficher jours de la semaine
-			for (int jour = 0; jour < 7; ++jour) {
-				cout << "" << " ";
-			}
-			cout << endl;
-			// Fin Fonction Afficher jours de la semaine
-			// Fin fonction Afficher un mois
-
-			if (moisActuel == 12) {
+			if (moisActuel == MOIS_PAR_ANNEE) {
 				anneeActuelle++;
 			}
 		}
-	} while(relancerProgramme());
-
+	} while (relancerProgramme());
 
 	return EXIT_SUCCESS;
 }
