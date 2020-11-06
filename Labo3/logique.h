@@ -33,12 +33,14 @@ unsigned nbJoursParMois(unsigned noMois, unsigned annee);
 
  /**
   * Détermine le nombre de mois (bornes comprises) entre deux dates
-  * La fonction ne vérifie pas que la date de début soit bien avant celle de fin.
+  * Condition: date de début <= date de fin
+  * Dans le cas contraire, la fonction assert et termine le programme si la date de
+  * début est après celle de fin.
   * @param moisDebut : mois de début, compris dans le résultat final
   * @param moisFin : mois de fin, compris dans le résultat final
   * @param anneeDebut : année de début
   * @param anneeFin : année de fin
-  * @return true si la date de fin est plus grande que la date de début
+  * @return le nombre de mois entre les deux dates
   */
 unsigned nbMoisEntreDeuxDates(unsigned moisDebut, unsigned moisFin, unsigned
 anneeDebut, unsigned anneeFin);
