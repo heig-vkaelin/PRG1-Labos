@@ -65,3 +65,13 @@ bool dateDebutAvantFin(unsigned moisDebut, unsigned moisFin, unsigned anneeDebut
 	return anneeDebut * 12 + moisDebut <= anneeFin * 12 + moisFin;
 }
 
+unsigned jourDeLaSemaine(unsigned jour, unsigned mois, unsigned annee) {
+	int cumulFevrier = 2;
+	if (mois < 3) {
+		annee--;
+		cumulFevrier = 4;
+	}
+	return (23 * mois / 9 + jour + cumulFevrier + annee + annee / 4 - annee / 100 +
+			 annee / 400) % 7;
+}
+
