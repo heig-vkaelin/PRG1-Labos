@@ -12,7 +12,6 @@ Compilateur : Mingw-w64 g++ 8.1.0
 -----------------------------------------------------------------------------------
 */
 
-#include <cstdlib>
 #include <iostream>
 #include <iomanip>
 #include "logique.h"
@@ -25,19 +24,26 @@ void saisirDate(bool estDateDeDebut, unsigned &mois, unsigned &annee) {
 		cout << "Entrez la date de" << (estDateDeDebut ? " debut" : " fin")
 			  << " [mm aaaa] :";
 
-		cin >> noskipws >> mois >> skipws;
-		if (cin.peek() != '\n') {
-			saisieOK = cin >> annee && dateDansIntervalle(mois, annee);
+		cin >> noskipws >> mois;
+
+		int separateur = cin.get();
+
+		if (separateur == ' ') {
+			cin >> annee;
+			saisieOK = cin.peek() == '\n' && dateDansIntervalle(mois, annee);
 		} else {
 			saisieOK = false;
 		}
-
 		if (!saisieOK) {
-			cin.clear();
 			cout << "Date non valide. Veuillez SVP recommencer.\n" << endl;
+
+			if (separateur != '\n') {
+				cin.clear();
+				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+			}
 		}
-		cin.ignore(numeric_limits<streamsize>::max(), '\n');
 	} while (!saisieOK);
+	cin.ignore(numeric_limits<streamsize>::max(), '\n');
 }
 
 void afficherDemandesDeSaisie(unsigned &moisDebut, unsigned &moisFin,
