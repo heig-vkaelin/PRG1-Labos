@@ -60,3 +60,8 @@ bool dateDansIntervalle(unsigned mois, unsigned annee) {
 			 annee >= ANNEE_BORNE_INFERIEURE && annee <= ANNEE_BORNE_SUPERIEURE;
 }
 
+bool dateDebutAvantFin(unsigned moisDebut, unsigned moisFin, unsigned anneeDebut,
+							  unsigned anneeFin) {
+	return anneeDebut * 12 + moisDebut <= anneeFin * 12 + moisFin;
+}
+

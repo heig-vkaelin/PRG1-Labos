@@ -18,18 +18,6 @@ Compilateur : Mingw-w64 g++ 8.1.0
 
 using namespace std;
 
-
-bool dateDebutAvantFin(unsigned moisDebut, unsigned moisFin, unsigned anneeDebut,
-							  unsigned anneeFin) {
-	if (anneeDebut * 12 + moisDebut <= anneeFin * 12 + moisFin) {
-		return true;
-	}
-	cout
-		<< "Date de fin plus grande que de date de debut. Veuillez SVP recommencer."
-		<< endl;
-	return false;
-}
-
 void saisirDate(bool estDateDeDebut, unsigned &mois, unsigned &annee) {
 	bool saisieOK;
 	do {
@@ -53,8 +41,16 @@ void saisirDate(bool estDateDeDebut, unsigned &mois, unsigned &annee) {
 
 void afficherDemandesDeSaisie(unsigned &moisDebut, unsigned &moisFin,
 										unsigned &anneeDebut, unsigned &anneeFin) {
+	bool saisieOk;
 	do {
 		saisirDate(true, moisDebut, anneeDebut);
 		saisirDate(false, moisFin, anneeFin);
-	} while (!dateDebutAvantFin(moisDebut, moisFin, anneeDebut, anneeFin));
+
+		saisieOk = dateDebutAvantFin(moisDebut, moisFin, anneeDebut, anneeFin);
+
+		if (!saisieOk) {
+			cout << "Date de fin plus petite que de date de debut. Veuillez SVP"
+			  " recommencer." << endl;
+		}
+	} while (!saisieOk);
 }

@@ -47,4 +47,7 @@ anneeDebut, unsigned anneeFin);
 
 bool dateDansIntervalle(unsigned mois, unsigned annee);
 
+bool dateDebutAvantFin(unsigned moisDebut, unsigned moisFin, unsigned anneeDebut,
+							  unsigned anneeFin);
+
 #endif //LABO3_LOGIQUE_H
