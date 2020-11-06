@@ -20,22 +20,17 @@ using namespace std;
 
 void saisirDate(bool estDateDeDebut, unsigned &mois, unsigned &annee) {
 	bool saisieOK;
+	string saisie;
 	do {
 		cout << "Entrez la date de" << (estDateDeDebut ? " debut" : " fin")
 			  << " [mm aaaa] :";
 
-		if (cin.peek() != '\n') {
 			saisieOK = bool(cin >> noskipws >> mois >> skipws);
-
 			if (cin.peek() != '\n') {
-				saisieOK = cin >> annee && dateDansIntervalle(mois, annee);
-			}
-			else {
+				saisieOK = cin >> annee && dateDansIntervalle(mois,annee);
+			} else {
 				saisieOK = false;
 			}
-		} else {
-			saisieOK = false;
-		}
 
 		if (!saisieOK) {
 			cin.clear();
@@ -43,6 +38,7 @@ void saisirDate(bool estDateDeDebut, unsigned &mois, unsigned &annee) {
 		}
 		cin.ignore(numeric_limits<streamsize>::max(), '\n');
 	} while (!saisieOK);
+
 }
 
 void afficherDemandesDeSaisie(unsigned &moisDebut, unsigned &moisFin,
