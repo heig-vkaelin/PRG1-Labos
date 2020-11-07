@@ -1,22 +1,42 @@
 /*
 -----------------------------------------------------------------------------------
-Nom du fichier : <nom du fichier>.<xxx> (xxx = h ou cpp)
-Auteur(s) : <prénom> <nom>
-Date creation : <jj.mm.aaaa>
+Nom du fichier	: affichage.h
+Auteur(s)		: Valentin Kaelin, Jonathan Friedli, Lazar Pavicevic
+Date creation	: 05.11.2020
 
-Description : <à compléter>
+Description		: <à compléter>
 
-Remarque(s) : <à compléter>
+Remarque(s)		: <à compléter>
 
-Compilateur : Mingw-w64 g++ 8.1.0
+Compilateur		: Mingw-w64 g++ 8.1.0
 -----------------------------------------------------------------------------------
 */
 
 #ifndef LABO3_AFFICHAGE_H
 #define LABO3_AFFICHAGE_H
 
+/**
+ * Traite la saisie utilisateur d'une date sous le format "mm aaaa" et la stocke dans
+ * les variables "mois" et "annee" passées par référence. Un message d'erreur
+ * apparaît en cas de saisie incorrecte puis une nouvelle tentative sera
+ * proposée à l'utilisateur.
+ * @param estDateDeDebut : indication permettant d'afficher le message de saisie
+ * adéquat.
+ * @param mois : passé par référence
+ * @param annee : passée par référence
+ */
 void saisirDate(bool estDateDeDebut, unsigned int &mois, unsigned int &annee);
 
+/**
+ * Affiche deux demandes de saisie de date (une de début et une de fin). Vérifie
+ * que la date de début soit plus ancienne que la date de fin. Si ce n'est pas le
+ * cas, un message d'erreur est affiché et l'utilisateur est invité à saisir les
+ * dates depuis le début.
+ * @param moisDebut : mois de début, passé par référence
+ * @param moisFin : mois de fin, passé par référence
+ * @param anneeDebut : année de début, passée par référence
+ * @param anneeFin : année de fin, passée par référence
+ */
 void afficherDemandesDeSaisie(unsigned &moisDebut, unsigned &moisFin,
 										unsigned &anneeDebut, unsigned &anneeFin);
 

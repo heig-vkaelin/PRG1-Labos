@@ -1,3 +1,17 @@
+/*
+-----------------------------------------------------------------------------------
+Nom du fichier	: main.cpp
+Auteur(s)		: Valentin Kaelin, Jonathan Friedli, Lazar Pavicevic
+Date creation	: 05.11.2020
+
+Description		: <à compléter>
+
+Remarque(s)		: <à compléter>
+
+Compilateur		: Mingw-w64 g++ 8.1.0
+-----------------------------------------------------------------------------------
+*/
+
 #include <cstdlib>
 #include "affichage.h"
 #include "date.h"

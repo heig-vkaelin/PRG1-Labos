@@ -1,14 +1,14 @@
 /*
 -----------------------------------------------------------------------------------
-Nom du fichier : <nom du fichier>.<xxx> (xxx = h ou cpp)
-Auteur(s) : <prénom> <nom>
-Date creation : <jj.mm.aaaa>
+Nom du fichier	: affichage.cpp
+Auteur(s)		: Valentin Kaelin, Jonathan Friedli, Lazar Pavicevic
+Date creation	: 05.11.2020
 
-Description : <à compléter>
+Description		: <à compléter>
 
-Remarque(s) : <à compléter>
+Remarque(s)		: <à compléter>
 
-Compilateur : Mingw-w64 g++ 8.1.0
+Compilateur		: Mingw-w64 g++ 8.1.0
 -----------------------------------------------------------------------------------
 */
 
@@ -25,6 +25,8 @@ void saisirDate(bool estDateDeDebut, unsigned &mois, unsigned &annee) {
 		cout << "Entrez la date de" << (estDateDeDebut ? " debut" : " fin")
 			  << " [mm aaaa] :";
 
+		// noskipws aide la gestion du cas où l'utilisateur fait juste la
+		// combinaison "space" + "enter".
 		cin >> noskipws >> mois;
 
 		int separateur = cin.get();

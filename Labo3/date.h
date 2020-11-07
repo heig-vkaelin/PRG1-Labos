@@ -1,14 +1,14 @@
 /*
 -----------------------------------------------------------------------------------
-Nom du fichier : <nom du fichier>.<xxx> (xxx = h ou cpp)
-Auteur(s) : <prénom> <nom>
-Date creation : <jj.mm.aaaa>
+Nom du fichier	: date.h
+Auteur(s)		: Valentin Kaelin, Jonathan Friedli, Lazar Pavicevic
+Date creation	: 05.11.2020
 
-Description : <à compléter>
+Description		: <à compléter>
 
-Remarque(s) : <à compléter>
+Remarque(s)		: <à compléter>
 
-Compilateur : Mingw-w64 g++ 8.1.0
+Compilateur		: Mingw-w64 g++ 8.1.0
 -----------------------------------------------------------------------------------
 */
 
@@ -31,7 +31,7 @@ bool estBissextile(unsigned annee);
  * Détermine le nombre de jours d'un mois d'une année
  * @param noMois
  * @param annee
- * @return nombre de mois
+ * @return nombre de jours d'un mois
  */
 unsigned nbJoursParMois(unsigned noMois, unsigned annee);
 
@@ -50,8 +50,25 @@ unsigned nbJoursParMois(unsigned noMois, unsigned annee);
 unsigned nbMoisEntreDeuxDates(unsigned moisDebut, unsigned moisFin, unsigned
 anneeDebut, unsigned anneeFin);
 
+/**
+ * Vérifie que le mois et l'année sont compris dans leur intervalle respectif.
+ * Intervalle du mois: [1;12]
+ * Intervalle de l'année: [1900;2100]
+ * @param mois
+ * @param annee
+ * @return true si le mois et l'année sont compris dans leur intervalle respectif.
+ */
 bool dateDansIntervalle(unsigned mois, unsigned annee);
 
+/**
+ * Vérifie que la date de début est plus petite (et donc plus ancienne) que la
+ * date de fin.
+ * @param moisDebut
+ * @param moisFin
+ * @param anneeDebut
+ * @param anneeFin
+ * @return true si la date de début est plus petite que la date de fin.
+ */
 bool dateDebutAvantFin(unsigned moisDebut, unsigned moisFin, unsigned anneeDebut,
 							  unsigned anneeFin);
 

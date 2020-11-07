@@ -1,14 +1,14 @@
 /*
 -----------------------------------------------------------------------------------
-Nom du fichier : <nom du fichier>.<xxx> (xxx = h ou cpp)
-Auteur(s) : <prénom> <nom>
-Date creation : <jj.mm.aaaa>
+Nom du fichier	: date.cpp
+Auteur(s)		: Valentin Kaelin, Jonathan Friedli, Lazar Pavicevic
+Date creation	: 05.11.2020
 
-Description : <à compléter>
+Description		: <à compléter>
 
-Remarque(s) : <à compléter>
+Remarque(s)		: <à compléter>
 
-Compilateur : Mingw-w64 g++ 8.1.0
+Compilateur		: Mingw-w64 g++ 8.1.0
 -----------------------------------------------------------------------------------
 */
 
