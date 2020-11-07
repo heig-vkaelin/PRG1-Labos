@@ -15,23 +15,17 @@ Compilateur : Mingw-w64 g++ 8.1.0
 #ifndef LABO3_AFFICHAGE_H
 #define LABO3_AFFICHAGE_H
 
-#include <string>
-
 void saisirDate(bool estDateDeDebut, unsigned int &mois, unsigned int &annee);
-
-bool dateDebutAvantFin(unsigned moisDebut, unsigned moisFin, unsigned anneeDebut,
-							  unsigned anneeFin);
 
 void afficherDemandesDeSaisie(unsigned &moisDebut, unsigned &moisFin,
 										unsigned &anneeDebut, unsigned &anneeFin);
 
 bool relancerProgramme();
 
-void afficheJoursSemaine();
+void afficherJourDuMois(unsigned jour, unsigned jourSemaine);
 
-std::string nomDuMois(unsigned noMois);
+void afficherMois(unsigned mois, unsigned annee, unsigned &jourDeLaSemaine);
 
-void afficheMois(unsigned mois, unsigned annee, unsigned joursMois,
-					  unsigned &jourDeLaSemaine);
+void afficherCalendrier(unsigned moisDebut, unsigned annee, unsigned nbMois);
 
 #endif //LABO3_AFFICHAGE_H

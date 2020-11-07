@@ -12,8 +12,10 @@ Compilateur : Mingw-w64 g++ 8.1.0
 -----------------------------------------------------------------------------------
 */
 
-#ifndef LABO3_LOGIQUE_H
-#define LABO3_LOGIQUE_H
+#ifndef LABO3_DATE_H
+#define LABO3_DATE_H
+
+#include <string>
 
 extern const unsigned JOURS_PAR_SEMAINE;
 extern const unsigned MOIS_PAR_ANNEE;
@@ -55,6 +57,6 @@ bool dateDebutAvantFin(unsigned moisDebut, unsigned moisFin, unsigned anneeDebut
 
 unsigned jourDeLaSemaine(unsigned jour, unsigned mois, unsigned annee);
 
-unsigned espacementJourDuMois(unsigned jour, unsigned jourDeLaSemaine);
+std::string nomDuMois(unsigned noMois);
 
-#endif //LABO3_LOGIQUE_H
+#endif //LABO3_DATE_H

@@ -13,7 +13,10 @@ Compilateur : Mingw-w64 g++ 8.1.0
 */
 
 #include <cassert>
-#include "logique.h"
+#include <string>
+#include "date.h"
+
+using namespace std;
 
 enum class Mois {
 	JANVIER = 1, FEVRIER, MARS, AVRIL, MAI, JUIN, JUILLET, AOUT,
@@ -80,12 +83,33 @@ unsigned jourDeLaSemaine(unsigned jour, unsigned mois, unsigned annee) {
 		 annee / 400 - 1) % JOURS_PAR_SEMAINE;
 }
 
-unsigned espacementJourDuMois(unsigned jour, unsigned jourDeLaSemaine) {
-	const unsigned LARGEUR_COLONNE = 3;
-	const unsigned LARGEUR_PREMIERE_COLONNE = 2;
-
-	if (jour == 0) {
-		return jourDeLaSemaine * LARGEUR_COLONNE + LARGEUR_PREMIERE_COLONNE;
+string nomDuMois(unsigned noMois) {
+	switch ((Mois) noMois) {
+		case Mois::JANVIER:
+			return "Janvier";
+		case Mois::FEVRIER:
+			return "Fevrier";
+		case Mois::MARS:
+			return "Mars";
+		case Mois::AVRIL:
+			return "Avril";
+		case Mois::MAI:
+			return "Mai";
+		case Mois::JUIN:
+			return "Juin";
+		case Mois::JUILLET:
+			return "Juillet";
+		case Mois::AOUT:
+			return "Aout";
+		case Mois::SEPTEMBRE:
+			return "Septembre";
+		case Mois::OCTOBRE:
+			return "Octobre";
+		case Mois::NOVEMBRE:
+			return "Novembre";
+		case Mois::DECEMBRE:
+			return "Decembre";
+		default:
+			return "";
 	}
-	return jourDeLaSemaine == 0 ? LARGEUR_PREMIERE_COLONNE : LARGEUR_COLONNE;
 }

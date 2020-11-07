@@ -14,7 +14,8 @@ Compilateur : Mingw-w64 g++ 8.1.0
 
 #include <iostream>
 #include <iomanip>
-#include "logique.h"
+#include <cmath>
+#include "date.h"
 
 using namespace std;
 
@@ -81,57 +82,48 @@ bool relancerProgramme() {
 	return saisie == 'n';
 }
 
-void afficheJoursSemaine() {
-	cout << " L  M  M  J  V  S  D" << endl;
-}
+void afficherJourDuMois(unsigned jour, unsigned jourSemaine) {
+	const unsigned LARGEUR_COLONNE = 3;
+	const unsigned LARGEUR_PREMIERE_COLONNE = 2;
+	unsigned largeurJour;
 
-string nomDuMois(unsigned noMois) {
-	switch (noMois) {
-		case 1:
-			return "Janvier";
-		case 2:
-			return "Fevrier";
-		case 3:
-			return "Mars";
-		case 4:
-			return "Avril";
-		case 5:
-			return "Mai";
-		case 6:
-			return "Juin";
-		case 7:
-			return "Juillet";
-		case 8:
-			return "Aout";
-		case 9:
-			return "Septembre";
-		case 10:
-			return "Octobre";
-		case 11:
-			return "Novembre";
-		case 12:
-			return "Decembre";
-		default:
-			return "";
+	if (jour == 1) {
+		largeurJour = jourSemaine * LARGEUR_COLONNE + LARGEUR_PREMIERE_COLONNE;
+	} else {
+		largeurJour = jourSemaine == 0 ? LARGEUR_PREMIERE_COLONNE : LARGEUR_COLONNE;
 	}
+
+	cout << setw((int) largeurJour) << jour;
 }
 
-void afficheMois(unsigned mois, unsigned annee, unsigned joursMois,
-					  unsigned &jourDeLaSemaine) {
+void afficherMois(unsigned mois, unsigned annee, unsigned &jourSemaine) {
+	unsigned nbJours = nbJoursParMois(mois, annee);
 
-	cout << nomDuMois(mois) << " " << annee << endl << endl;
-	afficheJoursSemaine();
-	for (unsigned jour = 0; jour < joursMois; ++jour) {
-		unsigned decalage = espacementJourDuMois(jour, jourDeLaSemaine);
+	cout << endl << nomDuMois(mois) << " " << annee << endl << endl;
+	cout << " L  M  M  J  V  S  D" << endl;
 
-		cout << setw((int) decalage) << jour + 1;
-
-		if ((jourDeLaSemaine + 1) % JOURS_PAR_SEMAINE == 0) {
+	for (unsigned jour = 1; jour <= nbJours; ++jour, ++jourSemaine) {
+		if (jourSemaine == JOURS_PAR_SEMAINE) {
 			cout << endl;
-			jourDeLaSemaine = 0;
-		} else {
-			++jourDeLaSemaine;
+			jourSemaine = 0;
+		}
+
+		afficherJourDuMois(jour, jourSemaine);
+	}
+	cout << endl;
+	jourSemaine %= JOURS_PAR_SEMAINE;
+}
+
+void afficherCalendrier(unsigned moisDebut, unsigned annee, unsigned nbMois) {
+	unsigned jourSemaine = jourDeLaSemaine(1, moisDebut, annee);
+	unsigned moisActuel = moisDebut;
+	for (unsigned i = 1; i <= nbMois; ++i, ++moisActuel) {
+
+		afficherMois(moisActuel, annee, jourSemaine);
+
+		if (moisActuel % MOIS_PAR_ANNEE == 0) {
+			annee++;
+			moisActuel %= MOIS_PAR_ANNEE;
 		}
 	}
-	cout << endl << endl;
 }
