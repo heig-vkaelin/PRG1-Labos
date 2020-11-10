@@ -75,12 +75,17 @@ bool dateDebutAvantFin(unsigned moisDebut, unsigned moisFin, unsigned anneeDebut
 }
 
 unsigned jourDeLaSemaine(unsigned jour, unsigned mois, unsigned annee) {
+	// Voici le site où l'on a trouvé l'algorithme pour les jours de la semaine
+	// https://bit.ly/3eHAmw3
+
 	// On compense le fait que février n'a que 28 jours.
 	unsigned compensationFevrier = 2;
 	if (mois < 3) {
 		annee--;
 		compensationFevrier = 4;
 	}
+	// On a rajouté un -1 à l'algorithme afin que le dimanche ne soit plus le jour 0
+	// mais le jour 6.
 	return
 		(23 * mois / 9 + jour + compensationFevrier + annee + annee / 4 - annee / 100 +
 		 annee / 400 - 1) % JOURS_PAR_SEMAINE;
