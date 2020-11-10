@@ -29,7 +29,7 @@ bool estBissextile(unsigned annee);
 
 /**
  * Détermine le nombre de jours d'un mois d'une année
- * @param noMois
+ * @param noMois : numéro du mois [1-12]
  * @param annee
  * @return nombre de jours d'un mois
  */
@@ -53,7 +53,6 @@ anneeDebut, unsigned anneeFin);
 /**
  * Vérifie que le mois et l'année sont compris dans leur intervalle respectif.
  * Intervalle du mois: [1;12]
- * Intervalle de l'année: [1900;2100]
  * @param mois
  * @param annee
  * @return true si le mois et l'année sont compris dans leur intervalle respectif.
@@ -72,11 +71,19 @@ bool dateDansIntervalle(unsigned mois, unsigned annee);
 bool dateDebutAvantFin(unsigned moisDebut, unsigned moisFin, unsigned anneeDebut,
 							  unsigned anneeFin);
 
+/**
+ * On entre une date et la fonction détermine le numéro du jour de la semaine.
+ * Le jour vaudra 0 si c'est un lundi, 1 si c'est un mardi, ..., et 6 pour dimanche.
+ * @param jour
+ * @param mois
+ * @param annee
+ * @return Le numéro du jour de la semaine
+ */
 unsigned jourDeLaSemaine(unsigned jour, unsigned mois, unsigned annee);
 
 /**
  * Retourne le nom du mois en français selon son index
- * @param noMois numéro du mois [1-12]
+ * @param noMois : numéro du mois [1-12]
  * @return une chaîne de caractères contenant le nom du mois en français
  */
 std::string nomDuMois(unsigned noMois);
