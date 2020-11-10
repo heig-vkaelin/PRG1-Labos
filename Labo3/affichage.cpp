@@ -40,7 +40,7 @@ void saisirDate(bool estDateDeDebut, unsigned &mois, unsigned &annee) {
 		// En faisant get() on enlève le caractère qui sépare les deux nombres.
 		int separateur = cin.get();
 
-		//Vu que les espaces sont pris en compte avec noskipws, on s'assure que notre
+		// Vu que les espaces sont pris en compte avec noskipws, on s'assure que notre
 		// séparateur soit forcément un espace pour que la saisie soit correcte.
 		if (separateur == ' ') {
 			saisieCorrecte = cin >> annee && cin.peek() == '\n'

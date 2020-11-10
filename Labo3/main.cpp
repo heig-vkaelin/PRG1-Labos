@@ -12,6 +12,15 @@ Description    : Fichier principal du programme. L'utilisateur entre une date de
 
 Remarque(s)    : Utilisation de la compilation séparée pour améliorer la
                  lisibilité du code.
+                 Si nous souhaitons changer les bornes de notre code, il reste
+                 fonctionnel de novembre 1582 à mars de l'année 357'913'941.
+                 Si la date est inférieure à 1582, l'algorithme permettant de
+                 calculer le jour de la semaine n'est pas fonctionnel à cause du
+                 changement du calendrier julien au grégorien. Pour la bonne
+                 supérieure, il s'agit du moment à partir duquel les unsigned int
+                 vont produiront un dépassement de capacité (overflow) lors de la
+                 multiplication par le nombre de mois dans la méthode
+                 "nbMoisEntreDeuxDates".
 
 Compilateur    : Mingw-w64 g++ 8.1.0
 -----------------------------------------------------------------------------------
