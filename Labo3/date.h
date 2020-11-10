@@ -20,8 +20,6 @@ Compilateur    : Mingw-w64 g++ 8.1.0
 
 extern const int JOURS_PAR_SEMAINE;
 extern const int MOIS_PAR_ANNEE;
-extern const int ANNEE_BORNE_INFERIEURE;
-extern const int ANNEE_BORNE_SUPERIEURE;
 
 /**
  * Détermine si une année est bissextile ou pas

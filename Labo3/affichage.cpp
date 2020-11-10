@@ -49,9 +49,7 @@ void saisirDate(bool estDateDeDebut, int &mois, int &annee) {
 			saisieCorrecte = false;
 		}
 		if (!saisieCorrecte) {
-			cout << "Date non valide. Elle doit etre comprise entre " <<
-				  ANNEE_BORNE_INFERIEURE << "-" << ANNEE_BORNE_SUPERIEURE
-				  << ". Veuillez SVP recommencer." << endl << endl;
+			cout << "Date non valide. Veuillez SVP recommencer." << endl << endl;
 
 			// On efface le cin seulement s'il reste des caractères. Sinon il demande
 			// un retour a la ligne en plus
@@ -71,7 +69,7 @@ void afficherDemandesDeSaisie(int &moisDebut, int &moisFin, int &anneeDebut,
 	do {
 		saisirDate(true, moisDebut, anneeDebut);
 		saisirDate(false, moisFin, anneeFin);
-		
+
 		saisieCorrecte = dateDebutAvantFin(moisDebut, moisFin, anneeDebut, anneeFin);
 
 		if (!saisieCorrecte) {
@@ -92,6 +90,9 @@ bool quitterProgramme() {
 		if (!saisieCorrecte) {
 			cin.clear();
 		}
+
+		// Pour que le futur cin.ignore supprime bien le contenu
+		cout << endl;
 
 		cin.ignore(numeric_limits<streamsize>::max(), '\n');
 	} while (!saisieCorrecte);
