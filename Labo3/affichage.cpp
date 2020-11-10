@@ -86,7 +86,7 @@ bool quitterProgramme() {
 	bool saisieCorrecte;
 	do {
 		cout << "Voulez-vous quitter le programme ? ["
-		<< QUITTER << "/" << CONTINUER << "] :";
+			  << QUITTER << "/" << CONTINUER << "] :";
 		cin >> saisie;
 		saisieCorrecte = saisie == QUITTER || saisie == CONTINUER;
 
