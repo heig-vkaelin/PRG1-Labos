@@ -7,8 +7,8 @@ Date creation  : 05.11.2020
 Description    : Fichier principal du programme. L'utilisateur entre une date de
                  début et une date de fin. Le programme affiche ensuite dans la
                  console le calendrier de tous les mois compris entre ces deux dates.
-					  Une fois le programme terminé, l'utilisateur doit pouvoir choisir
-					  entre recommencer le programme ou le quitter.
+                 Une fois le programme terminé, l'utilisateur doit pouvoir choisir
+                 entre recommencer le programme ou le quitter.
 
 Remarque(s)    : Utilisation de la compilation séparée pour améliorer la
                  lisibilité du code.

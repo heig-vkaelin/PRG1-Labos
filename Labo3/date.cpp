@@ -5,9 +5,9 @@ Auteur(s)      : Jonathan Friedli, Valentin Kaelin, Lazar Pavicevic
 Date creation  : 05.11.2020
 
 Description    : Fichier contenant toute la logique se rapportant aux dates.
-					  C'est également dans ce fichier que les constantes concernant les
-					  dates sont déclarées. Comme par exemple les bornes inférieures et
-					  supérieures pour les années.
+                 C'est également dans ce fichier que les constantes concernant les
+                 dates sont déclarées. Comme par exemple les bornes inférieures et
+                 supérieures pour les années.
 
 Remarque(s)    : Une année est bissextile est divisible par 400 ou alors par 4
                  mais pas par 100.
