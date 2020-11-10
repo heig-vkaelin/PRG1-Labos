@@ -20,24 +20,24 @@ Compilateur		: Mingw-w64 g++ 8.1.0
 using namespace std;
 
 void saisirDate(bool estDateDeDebut, unsigned &mois, unsigned &annee) {
-	bool saisieOK;
+	bool saisieCorrecte;
 	do {
 		cout << "Entrez la date de" << (estDateDeDebut ? " debut" : " fin")
 			  << " [mm aaaa] :";
 
-		// noskipws aide la gestion du cas où l'utilisateur fait juste la
+		// noskipws aide à la gestion du cas où l'utilisateur fait juste la
 		// combinaison "space" + "enter".
 		cin >> noskipws >> mois;
 
 		int separateur = cin.get();
 
 		if (separateur == ' ') {
-			cin >> annee;
-			saisieOK = cin.peek() == '\n' && dateDansIntervalle(mois, annee);
+			saisieCorrecte = cin >> annee && cin.peek() == '\n'
+				&& dateDansIntervalle(mois,annee);
 		} else {
-			saisieOK = false;
+			saisieCorrecte = false;
 		}
-		if (!saisieOK) {
+		if (!saisieCorrecte) {
 			cout << "Date non valide. Veuillez SVP recommencer.\n" << endl;
 
 			if (separateur != '\n') {
@@ -45,41 +45,41 @@ void saisirDate(bool estDateDeDebut, unsigned &mois, unsigned &annee) {
 				cin.ignore(numeric_limits<streamsize>::max(), '\n');
 			}
 		}
-	} while (!saisieOK);
+	} while (!saisieCorrecte);
 	cin.ignore(numeric_limits<streamsize>::max(), '\n');
 }
 
 void afficherDemandesDeSaisie(unsigned &moisDebut, unsigned &moisFin,
 										unsigned &anneeDebut, unsigned &anneeFin) {
-	bool saisieOk;
+	bool saisieCorrecte;
 	do {
 		saisirDate(true, moisDebut, anneeDebut);
 		cout << endl;
 		saisirDate(false, moisFin, anneeFin);
 
-		saisieOk = dateDebutAvantFin(moisDebut, moisFin, anneeDebut, anneeFin);
+		saisieCorrecte = dateDebutAvantFin(moisDebut, moisFin, anneeDebut, anneeFin);
 
-		if (!saisieOk) {
+		if (!saisieCorrecte) {
 			cout << "Date de fin plus petite que de date de debut. Veuillez SVP"
 					  " recommencer.\n" << endl;
 		}
-	} while (!saisieOk);
+	} while (!saisieCorrecte);
 }
 
 bool quitterProgramme() {
 	char saisie;
-	bool saisieOk;
+	bool saisieCorrecte;
 	do {
 		cout << "Voulez-vous quitter le programme ? [o/n] :";
 		cin >> saisie;
-		saisieOk = saisie == 'o' || saisie == 'n';
+		saisieCorrecte = saisie == 'o' || saisie == 'n';
 
-		if (!saisieOk) {
+		if (!saisieCorrecte) {
 			cin.clear();
 		}
 
 		cin.ignore(numeric_limits<streamsize>::max(), '\n');
-	} while (!saisieOk);
+	} while (!saisieCorrecte);
 
 	return saisie == 'o';
 }
