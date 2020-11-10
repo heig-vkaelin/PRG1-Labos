@@ -80,12 +80,14 @@ void afficherDemandesDeSaisie(int &moisDebut, int &moisFin, int &anneeDebut,
 }
 
 bool quitterProgramme() {
+	const string QUITTER = "o";
+	const string CONTINUER = "n";
 	string saisie;
 	bool saisieCorrecte;
 	do {
 		cout << "Voulez-vous quitter le programme ? [o/n] :";
 		cin >> saisie;
-		saisieCorrecte = saisie == "o" || saisie == "n";
+		saisieCorrecte = saisie == QUITTER || saisie == CONTINUER;
 
 		if (!saisieCorrecte) {
 			cin.clear();
@@ -97,7 +99,7 @@ bool quitterProgramme() {
 		cin.ignore(numeric_limits<streamsize>::max(), '\n');
 	} while (!saisieCorrecte);
 
-	return saisie == "o";
+	return saisie == QUITTER;
 }
 
 void afficherJourDuMois(int jour, int jourSemaine) {
