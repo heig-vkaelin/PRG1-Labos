@@ -1,19 +1,21 @@
 /*
 -----------------------------------------------------------------------------------
-Nom du fichier	: date.cpp
-Auteur(s)		: Jonathan Friedli, Valentin Kaelin, Lazar Pavicevic
-Date creation	: 05.11.2020
+Nom du fichier : date.cpp
+Auteur(s)      : Jonathan Friedli, Valentin Kaelin, Lazar Pavicevic
+Date creation  : 05.11.2020
 
-Description		: Fichier contenant toute la logique se rapportant aux dates.
+Description    : Fichier contenant toute la logique se rapportant aux dates.
 					  C'est également dans ce fichier que les constantes concernant les
 					  dates sont déclarées. Comme par exemple les bornes inférieures et
 					  supérieures pour les années.
 
-Remarque(s)		: Une année est bissextile
-					  Voici le site où l'on a trouvé l'algorithme pour la fonction
+Remarque(s)    : Une année est bissextile est divisible par 400 ou alors par 4
+                 mais pas par 100.
+                 Utilisation de tableaux interdite.
+                 Voici le site où l'on a trouvé l'algorithme pour la fonction
                  jourDeLasemaine : https://bit.ly/3eHAmw3
 
-Compilateur		: Mingw-w64 g++ 8.1.0
+Compilateur    : Mingw-w64 g++ 8.1.0
 -----------------------------------------------------------------------------------
 */
 
@@ -32,6 +34,8 @@ const unsigned JOURS_PAR_SEMAINE = 7;
 const unsigned MOIS_PAR_ANNEE = 12;
 const unsigned ANNEE_BORNE_INFERIEURE = 1900;
 const unsigned ANNEE_BORNE_SUPERIEURE = 2100;
+const unsigned MOIS_BORNE_INFERIEURE = 1;
+const unsigned MOIS_BORNE_SUPERIEURE = MOIS_PAR_ANNEE;
 
 bool estBissextile(unsigned annee) {
 	return annee % 400 == 0 || (annee % 4 == 0 && annee % 100 != 0);
@@ -66,9 +70,6 @@ anneeDebut, unsigned anneeFin) {
 }
 
 bool dateDansIntervalle(unsigned mois, unsigned annee) {
-	const unsigned MOIS_BORNE_INFERIEURE = 1;
-	const unsigned MOIS_BORNE_SUPERIEURE = MOIS_PAR_ANNEE;
-
 	return mois >= MOIS_BORNE_INFERIEURE && mois <= MOIS_BORNE_SUPERIEURE &&
 			 annee >= ANNEE_BORNE_INFERIEURE && annee <= ANNEE_BORNE_SUPERIEURE;
 }

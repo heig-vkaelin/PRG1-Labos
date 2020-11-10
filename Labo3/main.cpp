@@ -1,21 +1,24 @@
 /*
 -----------------------------------------------------------------------------------
-Nom du fichier	: main.cpp
-Auteur(s)		: Jonathan Friedli, Valentin Kaelin, Lazar Pavicevic
-Date creation	: 05.11.2020
+Nom du fichier : main.cpp
+Auteur(s)      : Jonathan Friedli, Valentin Kaelin, Lazar Pavicevic
+Date creation  : 05.11.2020
 
-Description		: <à compléter>
+Description    : Fichier principal du programme. L'utilisateur entre une date de
+                 début et une date de fin. Le programme affiche ensuite dans la
+                 console le calendrier de tous les mois compris entre ces deux dates.
+					  Une fois le programme terminé, l'utilisateur doit pouvoir choisir
+					  entre recommencer le programme ou le quitter.
 
-Remarque(s)		: <à compléter>
+Remarque(s)    : Utilisation de la compilation séparée pour améliorer la
+                 lisibilité du code.
 
-Compilateur		: Mingw-w64 g++ 8.1.0
+Compilateur    : Mingw-w64 g++ 8.1.0
 -----------------------------------------------------------------------------------
 */
 
 #include <cstdlib>
 #include "affichage.h"
-
-using namespace std;
 
 int main() {
 	do {

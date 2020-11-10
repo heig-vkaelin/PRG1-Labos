@@ -1,14 +1,20 @@
 /*
 -----------------------------------------------------------------------------------
-Nom du fichier	: affichage.cpp
-Auteur(s)		: Jonathan Friedli, Valentin Kaelin, Lazar Pavicevic
-Date creation	: 05.11.2020
+Nom du fichier : affichage.cpp
+Auteur(s)      : Jonathan Friedli, Valentin Kaelin, Lazar Pavicevic
+Date creation  : 05.11.2020
 
-Description		: <à compléter>
+Description    : Fichier contenant tout le code concernant l'affichage du
+                 calendrier dans la console ainsi que la saisie utilisateur.
 
-Remarque(s)		: <à compléter>
+Remarque(s)    : Les saisies utilisateur doivent être entièrement contrôlées.
+                 Le mois et l'année doivent impérativement être saisis sur la même
+                 ligne, séparés par un espace.
+                 La date de début entrée doit se trouver avant la date de fin.
+                 En cas de saisie incorrecte, l'utilisateur est invité à ressaisir
+                 la date.
 
-Compilateur		: Mingw-w64 g++ 8.1.0
+Compilateur    : Mingw-w64 g++ 8.1.0
 -----------------------------------------------------------------------------------
 */
 

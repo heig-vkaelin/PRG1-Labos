@@ -1,21 +1,20 @@
 /*
 -----------------------------------------------------------------------------------
-Nom du fichier	: date.h
-Auteur(s)		: Jonathan Friedli, Valentin Kaelin, Lazar Pavicevic
-Date creation	: 05.11.2020
+Nom du fichier : date.h
+Auteur(s)      : Jonathan Friedli, Valentin Kaelin, Lazar Pavicevic
+Date creation  : 05.11.2020
 
-Description		: <à compléter>
+Description    : Fichier d'en-tête contenant les prototypes des fonctions ainsi
+                 que les variables externes du fichier date.cpp.
 
-Remarque(s)		: <à compléter>
+Remarque(s)    : -
 
-Compilateur		: Mingw-w64 g++ 8.1.0
+Compilateur    : Mingw-w64 g++ 8.1.0
 -----------------------------------------------------------------------------------
 */
 
 #ifndef LABO3_DATE_H
 #define LABO3_DATE_H
-
-#include <string>
 
 extern const unsigned JOURS_PAR_SEMAINE;
 extern const unsigned MOIS_PAR_ANNEE;
@@ -90,4 +89,4 @@ unsigned jourDeLaSemaine(unsigned jour, unsigned mois, unsigned annee);
  */
 std::string nomDuMois(unsigned noMois);
 
-#endif //LABO3_DATE_H
+#endif // LABO3_DATE_H

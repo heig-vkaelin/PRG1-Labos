@@ -1,14 +1,15 @@
 /*
 -----------------------------------------------------------------------------------
-Nom du fichier	: affichage.h
-Auteur(s)		: Valentin Kaelin, Jonathan Friedli, Lazar Pavicevic
-Date creation	: 05.11.2020
+Nom du fichier : affichage.h
+Auteur(s)      : Jonathan Friedli, Valentin Kaelin, Lazar Pavicevic
+Date creation  : 05.11.2020
 
-Description		: <à compléter>
+Description    : Fichier d'en-tête contenant les prototypes des fonctions du
+                 fichier affichage.cpp.
 
-Remarque(s)		: <à compléter>
+Remarque(s)    : -
 
-Compilateur		: Mingw-w64 g++ 8.1.0
+Compilateur    : Mingw-w64 g++ 8.1.0
 -----------------------------------------------------------------------------------
 */
 
@@ -74,4 +75,4 @@ void afficherMois(unsigned mois, unsigned annee, unsigned &jourDeLaSemaine);
 void afficherCalendrier(unsigned moisDebut, unsigned moisFin,
 								unsigned anneeDebut, unsigned anneeFin);
 
-#endif //LABO3_AFFICHAGE_H
+#endif // LABO3_AFFICHAGE_H
