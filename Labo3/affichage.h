@@ -40,12 +40,37 @@ void saisirDate(bool estDateDeDebut, unsigned int &mois, unsigned int &annee);
 void afficherDemandesDeSaisie(unsigned &moisDebut, unsigned &moisFin,
 										unsigned &anneeDebut, unsigned &anneeFin);
 
+/**
+ * Demande à l'utilisateur s'il veut quitter le programme ou alors recommencer son
+ * exécution
+ * @return true si l'utilisateur veut quitter le programme, false s'il veut
+ * recommencer
+ */
 bool quitterProgramme();
 
+/**
+ * Affiche le jour du mois passé en paramètre dans la console
+ * @param jour : jour du mois [1-31]
+ * @param jourSemaine : jour de la semaine [0-6]
+ */
 void afficherJourDuMois(unsigned jour, unsigned jourSemaine);
 
+/**
+ * Affiche le mois de l'année passé en paramètre dans la console
+ * @param mois : mois à afficher [1-12]
+ * @param annee : année du mois
+ * @param jourDeLaSemaine: jour de la semaine du premier jour du mois [0-6]
+ */
 void afficherMois(unsigned mois, unsigned annee, unsigned &jourDeLaSemaine);
 
+/**
+ * Affiche un calendrier dans la console du mois de début au mois de fin. Les 2
+ * mois sont compris dans l'intervalle.
+ * @param moisDebut
+ * @param moisFin
+ * @param anneeDebut
+ * @param anneeFin
+ */
 void afficherCalendrier(unsigned moisDebut, unsigned moisFin,
 								unsigned anneeDebut, unsigned anneeFin);
 
