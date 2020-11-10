@@ -1,7 +1,7 @@
 /*
 -----------------------------------------------------------------------------------
 Nom du fichier	: affichage.cpp
-Auteur(s)		: Valentin Kaelin, Jonathan Friedli, Lazar Pavicevic
+Auteur(s)		: Jonathan Friedli, Valentin Kaelin, Lazar Pavicevic
 Date creation	: 05.11.2020
 
 Description		: <à compléter>
@@ -38,7 +38,9 @@ void saisirDate(bool estDateDeDebut, unsigned &mois, unsigned &annee) {
 			saisieCorrecte = false;
 		}
 		if (!saisieCorrecte) {
-			cout << "Date non valide. Veuillez SVP recommencer.\n" << endl;
+			cout << "Date non valide. Elle doit etre comprise entre " <<
+				  ANNEE_BORNE_INFERIEURE << "-" << ANNEE_BORNE_SUPERIEURE
+				  << ". Veuillez SVP recommencer." << endl << endl;
 
 			if (separateur != '\n') {
 				cin.clear();

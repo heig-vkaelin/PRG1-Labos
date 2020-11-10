@@ -1,12 +1,16 @@
 /*
 -----------------------------------------------------------------------------------
 Nom du fichier	: date.cpp
-Auteur(s)		: Valentin Kaelin, Jonathan Friedli, Lazar Pavicevic
+Auteur(s)		: Jonathan Friedli, Valentin Kaelin, Lazar Pavicevic
 Date creation	: 05.11.2020
 
-Description		: <à compléter>
+Description		: Fichier contenant toute la logique se rapportant aux dates.
+					  C'est également dans ce fichier que les constantes concernant les
+					  dates sont déclarées. Comme par exemple les bornes inférieures et
+					  supérieures pour les années.
 
-Remarque(s)		: Voici le site où l'on a trouvé l'algorithme pour la fonction
+Remarque(s)		: Une année est bissextile
+					  Voici le site où l'on a trouvé l'algorithme pour la fonction
                  jourDeLasemaine : https://bit.ly/3eHAmw3
 
 Compilateur		: Mingw-w64 g++ 8.1.0

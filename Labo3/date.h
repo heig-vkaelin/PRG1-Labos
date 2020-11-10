@@ -1,7 +1,7 @@
 /*
 -----------------------------------------------------------------------------------
 Nom du fichier	: date.h
-Auteur(s)		: Valentin Kaelin, Jonathan Friedli, Lazar Pavicevic
+Auteur(s)		: Jonathan Friedli, Valentin Kaelin, Lazar Pavicevic
 Date creation	: 05.11.2020
 
 Description		: <à compléter>
@@ -19,6 +19,8 @@ Compilateur		: Mingw-w64 g++ 8.1.0
 
 extern const unsigned JOURS_PAR_SEMAINE;
 extern const unsigned MOIS_PAR_ANNEE;
+extern const unsigned ANNEE_BORNE_INFERIEURE;
+extern const unsigned ANNEE_BORNE_SUPERIEURE;
 
 /**
  * Détermine si une année est bissextile ou pas

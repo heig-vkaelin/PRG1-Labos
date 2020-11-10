@@ -1,7 +1,7 @@
 /*
 -----------------------------------------------------------------------------------
 Nom du fichier	: main.cpp
-Auteur(s)		: Valentin Kaelin, Jonathan Friedli, Lazar Pavicevic
+Auteur(s)		: Jonathan Friedli, Valentin Kaelin, Lazar Pavicevic
 Date creation	: 05.11.2020
 
 Description		: <à compléter>
