@@ -18,17 +18,17 @@ Compilateur    : Mingw-w64 g++ 8.1.0
 #ifndef LABO3_DATE_H
 #define LABO3_DATE_H
 
-extern const unsigned JOURS_PAR_SEMAINE;
-extern const unsigned MOIS_PAR_ANNEE;
-extern const unsigned ANNEE_BORNE_INFERIEURE;
-extern const unsigned ANNEE_BORNE_SUPERIEURE;
+extern const int JOURS_PAR_SEMAINE;
+extern const int MOIS_PAR_ANNEE;
+extern const int ANNEE_BORNE_INFERIEURE;
+extern const int ANNEE_BORNE_SUPERIEURE;
 
 /**
  * Détermine si une année est bissextile ou pas
  * @param annee
  * @return true si l'année est bissextile, false autrement
  */
-bool estBissextile(unsigned annee);
+bool estBissextile(int annee);
 
 /**
  * Détermine le nombre de jours d'un mois d'une année
@@ -36,21 +36,17 @@ bool estBissextile(unsigned annee);
  * @param annee
  * @return nombre de jours d'un mois
  */
-unsigned nbJoursParMois(unsigned noMois, unsigned annee);
+int nbJoursParMois(int noMois, int annee);
 
 /**
  * Détermine le nombre de mois (bornes comprises) entre deux dates
- * Condition: date de début <= date de fin
- * Dans le cas contraire, la fonction assert et termine le programme si la date de
- * début est après celle de fin.
  * @param moisDebut : mois de début, compris dans le résultat final
  * @param moisFin : mois de fin, compris dans le résultat final
  * @param anneeDebut : année de début
  * @param anneeFin : année de fin
  * @return le nombre de mois entre les deux dates
  */
-unsigned nbMoisEntreDeuxDates(unsigned moisDebut, unsigned moisFin, unsigned
-anneeDebut, unsigned anneeFin);
+int nbMoisEntreDeuxDates(int moisDebut, int moisFin, int anneeDebut, int anneeFin);
 
 /**
  * Vérifie que le mois et l'année sont compris dans leur intervalle respectif.
@@ -59,7 +55,7 @@ anneeDebut, unsigned anneeFin);
  * @param annee
  * @return true si le mois et l'année sont compris dans leur intervalle respectif.
  */
-bool dateDansIntervalle(unsigned mois, unsigned annee);
+bool dateDansIntervalle(int mois, int annee);
 
 /**
  * Vérifie que la date de début est plus petite (et donc plus ancienne) que la
@@ -70,8 +66,7 @@ bool dateDansIntervalle(unsigned mois, unsigned annee);
  * @param anneeFin
  * @return true si la date de début est plus petite que la date de fin.
  */
-bool dateDebutAvantFin(unsigned moisDebut, unsigned moisFin, unsigned anneeDebut,
-							  unsigned anneeFin);
+bool dateDebutAvantFin(int moisDebut, int moisFin, int anneeDebut, int anneeFin);
 
 /**
  * On entre une date et la fonction détermine le numéro du jour de la semaine.
@@ -81,13 +76,13 @@ bool dateDebutAvantFin(unsigned moisDebut, unsigned moisFin, unsigned anneeDebut
  * @param annee
  * @return Le numéro du jour de la semaine
  */
-unsigned jourDeLaSemaine(unsigned jour, unsigned mois, unsigned annee);
+int jourDeLaSemaine(int jour, int mois, int annee);
 
 /**
  * Retourne le nom du mois en français selon son index
  * @param noMois : numéro du mois [1-12]
  * @return une chaîne de caractères contenant le nom du mois en français
  */
-std::string nomDuMois(unsigned noMois);
+std::string nomDuMois(int noMois);
 
 #endif // LABO3_DATE_H

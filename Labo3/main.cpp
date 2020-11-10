@@ -13,14 +13,19 @@ Description    : Fichier principal du programme. L'utilisateur entre une date de
 Remarque(s)    : Utilisation de la compilation séparée pour améliorer la
                  lisibilité du code.
                  Si nous souhaitons changer les bornes de notre code, il reste
-                 fonctionnel de novembre 1582 à mars de l'année 357'913'941.
+                 fonctionnel de novembre 1582 à juillet de l'année 178'956'970.
                  Si la date est inférieure à 1582, l'algorithme permettant de
                  calculer le jour de la semaine n'est pas fonctionnel à cause du
                  changement du calendrier julien au grégorien. Pour la bonne
-                 supérieure, il s'agit du moment à partir duquel les unsigned int
-                 vont produiront un dépassement de capacité (overflow) lors de la
+                 supérieure, il s'agit du moment à partir duquel les int vont
+                 produire un dépassement de capacité (overflow) lors de la
                  multiplication par le nombre de mois dans la méthode
                  "nbMoisEntreDeuxDates".
+
+                 Pour les saisies utilisateur, nous devons utiliser des int signés à
+                 la place d'unsigned malgré le fait que les mois et années ne
+                 peuvent pas être négatifs pour éviter la cyclicité des nombres
+                 non signés.
 
 Compilateur    : Mingw-w64 g++ 8.1.0
 -----------------------------------------------------------------------------------
@@ -31,7 +36,7 @@ Compilateur    : Mingw-w64 g++ 8.1.0
 
 int main() {
 	do {
-		unsigned moisDebut, moisFin, anneeDebut, anneeFin;
+		int moisDebut, moisFin, anneeDebut, anneeFin;
 		afficherDemandesDeSaisie(moisDebut, moisFin, anneeDebut, anneeFin);
 
 		afficherCalendrier(moisDebut, moisFin, anneeDebut, anneeFin);

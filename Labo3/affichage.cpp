@@ -29,7 +29,7 @@ Compilateur    : Mingw-w64 g++ 8.1.0
 
 using namespace std;
 
-void saisirDate(bool estDateDeDebut, unsigned &mois, unsigned &annee) {
+void saisirDate(bool estDateDeDebut, int &mois, int &annee) {
 	bool saisieCorrecte;
 	do {
 		cout << "Entrez la date de" << (estDateDeDebut ? " debut" : " fin")
@@ -64,8 +64,8 @@ void saisirDate(bool estDateDeDebut, unsigned &mois, unsigned &annee) {
 	cin.ignore(numeric_limits<streamsize>::max(), '\n');
 }
 
-void afficherDemandesDeSaisie(unsigned &moisDebut, unsigned &moisFin,
-										unsigned &anneeDebut, unsigned &anneeFin) {
+void afficherDemandesDeSaisie(int &moisDebut, int &moisFin, int &anneeDebut,
+										int &anneeFin) {
 	bool saisieCorrecte;
 	do {
 		saisirDate(true, moisDebut, anneeDebut);
@@ -99,10 +99,10 @@ bool quitterProgramme() {
 	return saisie == "o";
 }
 
-void afficherJourDuMois(unsigned jour, unsigned jourSemaine) {
-	const unsigned LARGEUR_COLONNE = 3;
-	const unsigned LARGEUR_PREMIERE_COLONNE = 2;
-	unsigned largeurJour;
+void afficherJourDuMois(int jour, int jourSemaine) {
+	const int LARGEUR_COLONNE = 3;
+	const int LARGEUR_PREMIERE_COLONNE = 2;
+	int largeurJour;
 
 	if (jour == 1) {
 		largeurJour = jourSemaine * LARGEUR_COLONNE + LARGEUR_PREMIERE_COLONNE;
@@ -113,13 +113,13 @@ void afficherJourDuMois(unsigned jour, unsigned jourSemaine) {
 	cout << setw((int) largeurJour) << jour;
 }
 
-void afficherMois(unsigned mois, unsigned annee, unsigned &jourSemaine) {
-	unsigned nbJours = nbJoursParMois(mois, annee);
+void afficherMois(int mois, int annee, int &jourSemaine) {
+	int nbJours = nbJoursParMois(mois, annee);
 
 	cout << nomDuMois(mois) << " " << annee << endl << endl;
 	cout << " L  M  M  J  V  S  D" << endl;
 
-	for (unsigned jour = 1; jour <= nbJours; ++jour, ++jourSemaine) {
+	for (int jour = 1; jour <= nbJours; ++jour, ++jourSemaine) {
 		// Nouvelle semaine
 		if (jourSemaine == JOURS_PAR_SEMAINE) {
 			cout << endl;
@@ -132,14 +132,13 @@ void afficherMois(unsigned mois, unsigned annee, unsigned &jourSemaine) {
 	jourSemaine %= JOURS_PAR_SEMAINE;
 }
 
-void afficherCalendrier(unsigned moisDebut, unsigned moisFin, unsigned anneeDebut,
-								unsigned anneeFin) {
-	unsigned nbMois = nbMoisEntreDeuxDates(moisDebut, moisFin, anneeDebut, anneeFin);
-	unsigned jourSemaine = jourDeLaSemaine(1, moisDebut, anneeDebut);
-	unsigned moisActuel = moisDebut,
+void afficherCalendrier(int moisDebut, int moisFin, int anneeDebut, int anneeFin) {
+	int nbMois = nbMoisEntreDeuxDates(moisDebut, moisFin, anneeDebut, anneeFin);
+	int jourSemaine = jourDeLaSemaine(1, moisDebut, anneeDebut);
+	int moisActuel = moisDebut,
 		anneeActuelle = anneeDebut;
 
-	for (unsigned i = 1; i <= nbMois; ++i, ++moisActuel) {
+	for (int i = 1; i <= nbMois; ++i, ++moisActuel) {
 		afficherMois(moisActuel, anneeActuelle, jourSemaine);
 
 		// Nouvelle année

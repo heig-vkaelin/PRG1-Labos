@@ -29,7 +29,7 @@ Compilateur    : Mingw-w64 g++ 8.1.0
  * @param mois : passé par référence
  * @param annee : passée par référence
  */
-void saisirDate(bool estDateDeDebut, unsigned int &mois, unsigned int &annee);
+void saisirDate(bool estDateDeDebut, int &mois, int &annee);
 
 /**
  * Affiche deux demandes de saisie de date (une de début et une de fin). Vérifie
@@ -41,8 +41,8 @@ void saisirDate(bool estDateDeDebut, unsigned int &mois, unsigned int &annee);
  * @param anneeDebut : année de début, passée par référence
  * @param anneeFin : année de fin, passée par référence
  */
-void afficherDemandesDeSaisie(unsigned &moisDebut, unsigned &moisFin,
-										unsigned &anneeDebut, unsigned &anneeFin);
+void afficherDemandesDeSaisie(int &moisDebut, int &moisFin, int &anneeDebut,
+										int &anneeFin);
 
 /**
  * Demande à l'utilisateur s'il veut quitter le programme ou alors recommencer son
@@ -57,7 +57,7 @@ bool quitterProgramme();
  * @param jour : jour du mois [1-31]
  * @param jourSemaine : jour de la semaine [0-6]
  */
-void afficherJourDuMois(unsigned jour, unsigned jourSemaine);
+void afficherJourDuMois(int jour, int jourSemaine);
 
 /**
  * Affiche le mois de l'année passé en paramètre dans la console
@@ -65,7 +65,7 @@ void afficherJourDuMois(unsigned jour, unsigned jourSemaine);
  * @param annee : année du mois
  * @param jourSemaine: jour de la semaine du premier jour du mois [0-6]
  */
-void afficherMois(unsigned mois, unsigned annee, unsigned &jourSemaine);
+void afficherMois(int mois, int annee, int &jourSemaine);
 
 /**
  * Affiche un calendrier dans la console du mois de début au mois de fin. Les 2
@@ -75,7 +75,6 @@ void afficherMois(unsigned mois, unsigned annee, unsigned &jourSemaine);
  * @param anneeDebut
  * @param anneeFin
  */
-void afficherCalendrier(unsigned moisDebut, unsigned moisFin,
-								unsigned anneeDebut, unsigned anneeFin);
+void afficherCalendrier(int moisDebut, int moisFin, int anneeDebut, int anneeFin);
 
 #endif // LABO3_AFFICHAGE_H

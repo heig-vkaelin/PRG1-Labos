@@ -19,7 +19,6 @@ Compilateur    : Mingw-w64 g++ 8.1.0
 -----------------------------------------------------------------------------------
 */
 
-#include <cassert>
 #include <string>
 #include "date.h"
 
@@ -30,18 +29,18 @@ enum class Mois {
 	SEPTEMBRE, OCTOBRE, NOVEMBRE, DECEMBRE
 };
 
-const unsigned JOURS_PAR_SEMAINE = 7;
-const unsigned MOIS_PAR_ANNEE = 12;
-const unsigned ANNEE_BORNE_INFERIEURE = 1900;
-const unsigned ANNEE_BORNE_SUPERIEURE = 2100;
-const unsigned MOIS_BORNE_INFERIEURE = 1;
-const unsigned MOIS_BORNE_SUPERIEURE = MOIS_PAR_ANNEE;
+const int JOURS_PAR_SEMAINE = 7;
+const int MOIS_PAR_ANNEE = 12;
+const int ANNEE_BORNE_INFERIEURE = 1900;
+const int ANNEE_BORNE_SUPERIEURE = 2100;
+const int MOIS_BORNE_INFERIEURE = 1;
+const int MOIS_BORNE_SUPERIEURE = MOIS_PAR_ANNEE;
 
-bool estBissextile(unsigned annee) {
+bool estBissextile(int annee) {
 	return annee % 400 == 0 || (annee % 4 == 0 && annee % 100 != 0);
 }
 
-unsigned nbJoursParMois(unsigned noMois, unsigned annee) {
+int nbJoursParMois(int noMois, int annee) {
 	switch ((Mois) noMois) {
 		case Mois::FEVRIER:
 			return estBissextile(annee) ? 29 : 28;
@@ -55,34 +54,27 @@ unsigned nbJoursParMois(unsigned noMois, unsigned annee) {
 	}
 }
 
-unsigned nbMoisEntreDeuxDates(unsigned moisDebut, unsigned moisFin, unsigned
-anneeDebut, unsigned anneeFin) {
-	unsigned dateDebut = anneeDebut * MOIS_PAR_ANNEE + moisDebut;
-	unsigned dateFin = anneeFin * MOIS_PAR_ANNEE + moisFin;
-
-	// Si la date de début se trouve après la date de fin: arrêt du programme car
-	// problème dans la logique du code. En effet, ce cas ne devrait jamais se
-	// produire grâce aux différents tests réalisés lors de la saisie
-	assert(dateDebut <= dateFin);
+int nbMoisEntreDeuxDates(int moisDebut, int moisFin, int anneeDebut, int anneeFin) {
+	int dateDebut = anneeDebut * MOIS_PAR_ANNEE + moisDebut;
+	int dateFin = anneeFin * MOIS_PAR_ANNEE + moisFin;
 
 	// Mois de début et de fin compris
 	return dateFin - dateDebut + 1;
 }
 
-bool dateDansIntervalle(unsigned mois, unsigned annee) {
+bool dateDansIntervalle(int mois, int annee) {
 	return mois >= MOIS_BORNE_INFERIEURE && mois <= MOIS_BORNE_SUPERIEURE &&
 			 annee >= ANNEE_BORNE_INFERIEURE && annee <= ANNEE_BORNE_SUPERIEURE;
 }
 
-bool dateDebutAvantFin(unsigned moisDebut, unsigned moisFin, unsigned anneeDebut,
-							  unsigned anneeFin) {
+bool dateDebutAvantFin(int moisDebut, int moisFin, int anneeDebut, int anneeFin) {
 	return anneeDebut * MOIS_PAR_ANNEE + moisDebut <=
 			 anneeFin * MOIS_PAR_ANNEE + moisFin;
 }
 
-unsigned jourDeLaSemaine(unsigned jour, unsigned mois, unsigned annee) {
+int jourDeLaSemaine(int jour, int mois, int annee) {
 	// On compense le fait que février n'a que 28 jours.
-	unsigned compensationFevrier = 2;
+	int compensationFevrier = 2;
 	if (mois < 3) {
 		annee--;
 		compensationFevrier = 4;
@@ -94,7 +86,7 @@ unsigned jourDeLaSemaine(unsigned jour, unsigned mois, unsigned annee) {
 		 annee / 400 - 1) % JOURS_PAR_SEMAINE;
 }
 
-string nomDuMois(unsigned noMois) {
+string nomDuMois(int noMois) {
 	switch ((Mois) noMois) {
 		case Mois::JANVIER:
 			return "Janvier";
