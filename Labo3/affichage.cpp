@@ -35,16 +35,14 @@ void saisirDate(bool estDateDeDebut, unsigned &mois, unsigned &annee) {
 		cout << "Entrez la date de" << (estDateDeDebut ? " debut" : " fin")
 			  << " [mm aaaa] :";
 
-		// noskipws aide à la gestion du cas où l'utilisateur fait juste la
-		// combinaison de touches "space" + "enter".
 		cin >> noskipws >> mois;
 
 		// En faisant get() on enlève le caractère qui sépare les deux nombres.
 		int separateur = cin.get();
 
+		//Vu que les espaces sont pris en compte avec noskipws, on s'assure que notre
+		// séparateur soit forcément un espace pour que la saisie soit correcte.
 		if (separateur == ' ') {
-			// Il faut faire un peek() ici car si le cin est vide il va attendre une
-			// entrée de l'utilisateur
 			saisieCorrecte = cin >> annee && cin.peek() == '\n'
 								  && dateDansIntervalle(mois, annee);
 		} else {
