@@ -6,7 +6,8 @@ Date creation	: 05.11.2020
 
 Description		: <à compléter>
 
-Remarque(s)		: <à compléter>
+Remarque(s)		: Voici le site où l'on a trouvé l'algorithme pour la fonction
+                 jourDeLasemaine : https://bit.ly/3eHAmw3
 
 Compilateur		: Mingw-w64 g++ 8.1.0
 -----------------------------------------------------------------------------------
@@ -75,9 +76,6 @@ bool dateDebutAvantFin(unsigned moisDebut, unsigned moisFin, unsigned anneeDebut
 }
 
 unsigned jourDeLaSemaine(unsigned jour, unsigned mois, unsigned annee) {
-	// Voici le site où l'on a trouvé l'algorithme pour les jours de la semaine
-	// https://bit.ly/3eHAmw3
-
 	// On compense le fait que février n'a que 28 jours.
 	unsigned compensationFevrier = 2;
 	if (mois < 3) {
