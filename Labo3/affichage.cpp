@@ -101,7 +101,7 @@ void afficherJourDuMois(unsigned jour, unsigned jourSemaine) {
 void afficherMois(unsigned mois, unsigned annee, unsigned &jourSemaine) {
 	unsigned nbJours = nbJoursParMois(mois, annee);
 
-	cout << endl << nomDuMois(mois) << " " << annee << endl << endl;
+	cout << nomDuMois(mois) << " " << annee << endl << endl;
 	cout << " L  M  M  J  V  S  D" << endl;
 
 	for (unsigned jour = 1; jour <= nbJours; ++jour, ++jourSemaine) {
@@ -112,7 +112,7 @@ void afficherMois(unsigned mois, unsigned annee, unsigned &jourSemaine) {
 
 		afficherJourDuMois(jour, jourSemaine);
 	}
-	cout << endl;
+	cout << endl << endl;
 	jourSemaine %= JOURS_PAR_SEMAINE;
 }
 

@@ -74,6 +74,11 @@ bool dateDebutAvantFin(unsigned moisDebut, unsigned moisFin, unsigned anneeDebut
 
 unsigned jourDeLaSemaine(unsigned jour, unsigned mois, unsigned annee);
 
+/**
+ * Retourne le nom du mois en français selon son index
+ * @param noMois numéro du mois [1-12]
+ * @return une chaîne de caractères contenant le nom du mois en français
+ */
 std::string nomDuMois(unsigned noMois);
 
 #endif //LABO3_DATE_H
