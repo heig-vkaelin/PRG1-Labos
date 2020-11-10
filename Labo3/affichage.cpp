@@ -62,6 +62,7 @@ void saisirDate(bool estDateDeDebut, int &mois, int &annee) {
 		}
 	} while (!saisieCorrecte);
 	cin.ignore(numeric_limits<streamsize>::max(), '\n');
+	cout << endl;
 }
 
 void afficherDemandesDeSaisie(int &moisDebut, int &moisFin, int &anneeDebut,
@@ -69,14 +70,13 @@ void afficherDemandesDeSaisie(int &moisDebut, int &moisFin, int &anneeDebut,
 	bool saisieCorrecte;
 	do {
 		saisirDate(true, moisDebut, anneeDebut);
-		cout << endl;
 		saisirDate(false, moisFin, anneeFin);
-
+		
 		saisieCorrecte = dateDebutAvantFin(moisDebut, moisFin, anneeDebut, anneeFin);
 
 		if (!saisieCorrecte) {
 			cout << "Date de fin plus petite que de date de debut. Veuillez SVP"
-					  " recommencer.\n" << endl;
+					  " recommencer." << endl;
 		}
 	} while (!saisieCorrecte);
 }
