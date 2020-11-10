@@ -23,6 +23,9 @@ enum class Mois {
 	SEPTEMBRE, OCTOBRE, NOVEMBRE, DECEMBRE
 };
 
+const unsigned JOURS_PAR_SEMAINE = 7;
+const unsigned MOIS_PAR_ANNEE = 12;
+
 bool estBissextile(unsigned annee) {
 	return annee % 400 == 0 || (annee % 4 == 0 && annee % 100 != 0);
 }

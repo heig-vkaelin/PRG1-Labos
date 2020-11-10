@@ -40,7 +40,7 @@ void saisirDate(bool estDateDeDebut, unsigned int &mois, unsigned int &annee);
 void afficherDemandesDeSaisie(unsigned &moisDebut, unsigned &moisFin,
 										unsigned &anneeDebut, unsigned &anneeFin);
 
-bool relancerProgramme();
+bool quitterProgramme();
 
 void afficherJourDuMois(unsigned jour, unsigned jourSemaine);
 

@@ -14,12 +14,8 @@ Compilateur		: Mingw-w64 g++ 8.1.0
 
 #include <cstdlib>
 #include "affichage.h"
-#include "date.h"
 
 using namespace std;
-
-const unsigned JOURS_PAR_SEMAINE = 7;
-const unsigned MOIS_PAR_ANNEE = 12;
 
 int main() {
 	do {
@@ -33,7 +29,7 @@ int main() {
 		afficherDemandesDeSaisie(moisDebut, moisFin, anneeDebut, anneeFin);
 
 		afficherCalendrier(moisDebut, moisFin, anneeDebut, anneeFin);
-	} while (relancerProgramme());
+	} while (!quitterProgramme());
 
 	return EXIT_SUCCESS;
 }

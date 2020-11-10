@@ -66,7 +66,7 @@ void afficherDemandesDeSaisie(unsigned &moisDebut, unsigned &moisFin,
 	} while (!saisieOk);
 }
 
-bool relancerProgramme() {
+bool quitterProgramme() {
 	char saisie;
 	bool saisieOk;
 	do {
@@ -81,7 +81,7 @@ bool relancerProgramme() {
 		cin.ignore(numeric_limits<streamsize>::max(), '\n');
 	} while (!saisieOk);
 
-	return saisie == 'n';
+	return saisie == 'o';
 }
 
 void afficherJourDuMois(unsigned jour, unsigned jourSemaine) {
