@@ -46,6 +46,7 @@ void afficherJourDuMois(unsigned jour, unsigned jourSemaine);
 
 void afficherMois(unsigned mois, unsigned annee, unsigned &jourDeLaSemaine);
 
-void afficherCalendrier(unsigned moisDebut, unsigned annee, unsigned nbMois);
+void afficherCalendrier(unsigned moisDebut, unsigned moisFin,
+								unsigned anneeDebut, unsigned anneeFin);
 
 #endif //LABO3_AFFICHAGE_H

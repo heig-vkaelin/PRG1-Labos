@@ -116,15 +116,17 @@ void afficherMois(unsigned mois, unsigned annee, unsigned &jourSemaine) {
 	jourSemaine %= JOURS_PAR_SEMAINE;
 }
 
-void afficherCalendrier(unsigned moisDebut, unsigned annee, unsigned nbMois) {
-	unsigned jourSemaine = jourDeLaSemaine(1, moisDebut, annee);
-	unsigned moisActuel = moisDebut;
-	for (unsigned i = 1; i <= nbMois; ++i, ++moisActuel) {
+void afficherCalendrier(unsigned moisDebut, unsigned moisFin, unsigned anneeDebut,
+								unsigned anneeFin) {
+	unsigned nbMois = nbMoisEntreDeuxDates(moisDebut, moisFin, anneeDebut, anneeFin);
+	unsigned jourSemaine = jourDeLaSemaine(1, moisDebut, anneeDebut);
+	unsigned moisActuel = moisDebut, anneeActuelle = anneeDebut;
 
-		afficherMois(moisActuel, annee, jourSemaine);
+	for (unsigned i = 1; i <= nbMois; ++i, ++moisActuel) {
+		afficherMois(moisActuel, anneeActuelle, jourSemaine);
 
 		if (moisActuel % MOIS_PAR_ANNEE == 0) {
-			annee++;
+			anneeActuelle++;
 			moisActuel %= MOIS_PAR_ANNEE;
 		}
 	}

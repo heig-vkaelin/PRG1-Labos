@@ -32,9 +32,7 @@ int main() {
 		unsigned moisDebut, moisFin, anneeDebut, anneeFin;
 		afficherDemandesDeSaisie(moisDebut, moisFin, anneeDebut, anneeFin);
 
-		unsigned nbMois = nbMoisEntreDeuxDates(moisDebut, moisFin, anneeDebut,
-															anneeFin);
-		afficherCalendrier(moisDebut, anneeDebut, nbMois);
+		afficherCalendrier(moisDebut, moisFin, anneeDebut, anneeFin);
 	} while (relancerProgramme());
 
 	return EXIT_SUCCESS;
