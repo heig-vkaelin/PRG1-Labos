@@ -19,12 +19,6 @@ using namespace std;
 
 int main() {
 	do {
-		// Valeurs pour tester rapidement
-//		unsigned moisDebut = 11;
-//		unsigned anneeDebut = 2020;
-//		unsigned moisFin = 6;
-//		unsigned anneeFin = 2021;
-
 		unsigned moisDebut, moisFin, anneeDebut, anneeFin;
 		afficherDemandesDeSaisie(moisDebut, moisFin, anneeDebut, anneeFin);
 

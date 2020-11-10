@@ -25,6 +25,8 @@ enum class Mois {
 
 const unsigned JOURS_PAR_SEMAINE = 7;
 const unsigned MOIS_PAR_ANNEE = 12;
+const unsigned ANNEE_BORNE_INFERIEURE = 1900;
+const unsigned ANNEE_BORNE_SUPERIEURE = 2100;
 
 bool estBissextile(unsigned annee) {
 	return annee % 400 == 0 || (annee % 4 == 0 && annee % 100 != 0);
@@ -59,10 +61,8 @@ anneeDebut, unsigned anneeFin) {
 }
 
 bool dateDansIntervalle(unsigned mois, unsigned annee) {
-	unsigned int MOIS_BORNE_INFERIEURE = 1;
-	unsigned int MOIS_BORNE_SUPERIEURE = MOIS_PAR_ANNEE;
-	unsigned int ANNEE_BORNE_INFERIEURE = 1900;
-	unsigned int ANNEE_BORNE_SUPERIEURE = 2100;
+	const unsigned MOIS_BORNE_INFERIEURE = 1;
+	const unsigned MOIS_BORNE_SUPERIEURE = MOIS_PAR_ANNEE;
 
 	return mois >= MOIS_BORNE_INFERIEURE && mois <= MOIS_BORNE_SUPERIEURE &&
 			 annee >= ANNEE_BORNE_INFERIEURE && annee <= ANNEE_BORNE_SUPERIEURE;
