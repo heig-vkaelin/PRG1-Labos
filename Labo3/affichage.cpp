@@ -23,6 +23,7 @@ Compilateur    : Mingw-w64 g++ 8.1.0
 
 #include <iostream>
 #include <iomanip>
+#include <string>
 #include "affichage.h"
 #include "date.h"
 
@@ -45,7 +46,7 @@ void saisirDate(bool estDateDeDebut, unsigned &mois, unsigned &annee) {
 			// Il faut faire un peek() ici car si le cin est vide il va attendre une
 			// entrée de l'utilisateur
 			saisieCorrecte = cin >> annee && cin.peek() == '\n'
-				&& dateDansIntervalle(mois,annee);
+								  && dateDansIntervalle(mois, annee);
 		} else {
 			saisieCorrecte = false;
 		}
@@ -121,6 +122,7 @@ void afficherMois(unsigned mois, unsigned annee, unsigned &jourSemaine) {
 	cout << " L  M  M  J  V  S  D" << endl;
 
 	for (unsigned jour = 1; jour <= nbJours; ++jour, ++jourSemaine) {
+		// Nouvelle semaine
 		if (jourSemaine == JOURS_PAR_SEMAINE) {
 			cout << endl;
 			jourSemaine = 0;
@@ -136,11 +138,13 @@ void afficherCalendrier(unsigned moisDebut, unsigned moisFin, unsigned anneeDebu
 								unsigned anneeFin) {
 	unsigned nbMois = nbMoisEntreDeuxDates(moisDebut, moisFin, anneeDebut, anneeFin);
 	unsigned jourSemaine = jourDeLaSemaine(1, moisDebut, anneeDebut);
-	unsigned moisActuel = moisDebut, anneeActuelle = anneeDebut;
+	unsigned moisActuel = moisDebut,
+		anneeActuelle = anneeDebut;
 
 	for (unsigned i = 1; i <= nbMois; ++i, ++moisActuel) {
 		afficherMois(moisActuel, anneeActuelle, jourSemaine);
 
+		// Nouvelle année
 		if (moisActuel % MOIS_PAR_ANNEE == 0) {
 			anneeActuelle++;
 			moisActuel %= MOIS_PAR_ANNEE;
