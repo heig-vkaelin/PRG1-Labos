@@ -57,16 +57,16 @@ unsigned nbJoursParMois(unsigned noMois, unsigned annee) {
 
 unsigned nbMoisEntreDeuxDates(unsigned moisDebut, unsigned moisFin, unsigned
 anneeDebut, unsigned anneeFin) {
-	unsigned debut = anneeDebut * MOIS_PAR_ANNEE + moisDebut;
-	unsigned fin = anneeFin * MOIS_PAR_ANNEE + moisFin;
+	unsigned dateDebut = anneeDebut * MOIS_PAR_ANNEE + moisDebut;
+	unsigned dateFin = anneeFin * MOIS_PAR_ANNEE + moisFin;
 
 	// Si la date de début se trouve après la date de fin: arrêt du programme car
 	// problème dans la logique du code. En effet, ce cas ne devrait jamais se
 	// produire grâce aux différents tests réalisés lors de la saisie
-	assert(debut <= fin);
+	assert(dateDebut <= dateFin);
 
 	// Mois de début et de fin compris
-	return fin - debut + 1;
+	return dateFin - dateDebut + 1;
 }
 
 bool dateDansIntervalle(unsigned mois, unsigned annee) {

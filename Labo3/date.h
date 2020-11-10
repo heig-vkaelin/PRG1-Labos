@@ -7,7 +7,9 @@ Date creation  : 05.11.2020
 Description    : Fichier d'en-tête contenant les prototypes des fonctions ainsi
                  que les variables externes du fichier date.cpp.
 
-Remarque(s)    : -
+Remarque(s)    : Les paramètres de mois et jours du mois des différentes fonctions
+                 sont supposés corrects (dans les bonnes intervalles, [1-12] pour
+                 les mois et [1-31] pour les jours du mois).
 
 Compilateur    : Mingw-w64 g++ 8.1.0
 -----------------------------------------------------------------------------------
@@ -35,7 +37,6 @@ bool estBissextile(unsigned annee);
  * @return nombre de jours d'un mois
  */
 unsigned nbJoursParMois(unsigned noMois, unsigned annee);
-
 
 /**
  * Détermine le nombre de mois (bornes comprises) entre deux dates

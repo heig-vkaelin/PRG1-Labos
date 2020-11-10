@@ -7,7 +7,10 @@ Date creation  : 05.11.2020
 Description    : Fichier d'en-tête contenant les prototypes des fonctions du
                  fichier affichage.cpp.
 
-Remarque(s)    : -
+Remarque(s)    : Les paramètres de mois et jours de la semaine des différentes
+                 fonctions d'affichage sont supposés corrects (dans les bonnes
+                 intervalles, [1-12] pour les mois et [0-6] pour les jours de la
+                 semaine).
 
 Compilateur    : Mingw-w64 g++ 8.1.0
 -----------------------------------------------------------------------------------
@@ -60,9 +63,9 @@ void afficherJourDuMois(unsigned jour, unsigned jourSemaine);
  * Affiche le mois de l'année passé en paramètre dans la console
  * @param mois : mois à afficher [1-12]
  * @param annee : année du mois
- * @param jourDeLaSemaine: jour de la semaine du premier jour du mois [0-6]
+ * @param jourSemaine: jour de la semaine du premier jour du mois [0-6]
  */
-void afficherMois(unsigned mois, unsigned annee, unsigned &jourDeLaSemaine);
+void afficherMois(unsigned mois, unsigned annee, unsigned &jourSemaine);
 
 /**
  * Affiche un calendrier dans la console du mois de début au mois de fin. Les 2

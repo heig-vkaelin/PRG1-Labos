@@ -13,6 +13,7 @@ Remarque(s)    : Les saisies utilisateur doivent être entièrement contrôlées
                  La date de début entrée doit se trouver avant la date de fin.
                  En cas de saisie incorrecte, l'utilisateur est invité à ressaisir
                  la date.
+                 Les semaines du calendrier s'affichent du lundi au dimanche.
 
 Compilateur    : Mingw-w64 g++ 8.1.0
 -----------------------------------------------------------------------------------
@@ -32,12 +33,15 @@ void saisirDate(bool estDateDeDebut, unsigned &mois, unsigned &annee) {
 			  << " [mm aaaa] :";
 
 		// noskipws aide à la gestion du cas où l'utilisateur fait juste la
-		// combinaison "space" + "enter".
+		// combinaison de touches "space" + "enter".
 		cin >> noskipws >> mois;
 
+		// En faisant get() on enlève le caractère qui sépare les deux nombres.
 		int separateur = cin.get();
 
 		if (separateur == ' ') {
+			// Il faut faire un peek() ici car si le cin est vide il va attendre une
+			// entrée de l'utilisateur
 			saisieCorrecte = cin >> annee && cin.peek() == '\n'
 				&& dateDansIntervalle(mois,annee);
 		} else {
@@ -48,6 +52,8 @@ void saisirDate(bool estDateDeDebut, unsigned &mois, unsigned &annee) {
 				  ANNEE_BORNE_INFERIEURE << "-" << ANNEE_BORNE_SUPERIEURE
 				  << ". Veuillez SVP recommencer." << endl << endl;
 
+			// On efface le cin seulement s'il reste des caractères. Sinon il demande
+			// un retour a la ligne en plus
 			if (separateur != '\n') {
 				cin.clear();
 				cin.ignore(numeric_limits<streamsize>::max(), '\n');
