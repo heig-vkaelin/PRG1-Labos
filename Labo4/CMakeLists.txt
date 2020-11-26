@@ -4,4 +4,4 @@ project(Labo4)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_FLAGS "-Wall -Wextra -Wconversion -Wsign-conversion -pedantic")
 
-add_executable(Labo4 main.cpp)
+add_executable(Labo4 main.cpp affichage.cpp affichage.h logique.cpp logique.h)
