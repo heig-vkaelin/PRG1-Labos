@@ -17,12 +17,8 @@ void jeuDeLaVie(CONFIG_INITIALES config, int nbGenerations) {
 
 	while (nbGenerations > 0 || nbGenerations == -1) {
 		analyseGrille(grille);
-
-		afficherGrille(grille);
-
-
 		actualiserGrille(grille);
-
+		afficherGrille(grille);
 
 		if (nbGenerations != -1) {
 			nbGenerations--;
@@ -53,14 +49,12 @@ void analyseGrille(Grille &grille) {
 			grille.at(ligne).at(colonne) =
 				actualiserEtatCellule(grille, ligne, colonne);
 		}
-		cout << endl;
 	}
 }
 
 ETATS_CELLULES actualiserEtatCellule(Grille &grille, size_t ligne, size_t colonne) {
 	ETATS_CELLULES etatCellule = grille.at(ligne).at(colonne);
 	unsigned nbOccurrences = occurrences(grille, ligne, colonne);
-	cout << nbOccurrences;
 
 	if (etatCellule == ETATS_CELLULES::VIVANTE &&
 		 nbOccurrences != 2 && nbOccurrences != 3) {
@@ -74,16 +68,14 @@ ETATS_CELLULES actualiserEtatCellule(Grille &grille, size_t ligne, size_t colonn
 
 unsigned occurrences(Grille &grille, size_t ligne, size_t colonne) {
 	unsigned nbOccupees = 0;
-	unsigned nbBoucle = 0;
 	size_t i = ligne == 0 ? 0 : ligne - 1;
-	size_t j = colonne == 0 ? 0 : colonne - 1;
+	size_t valInitialeJ = colonne == 0 ? 0 : colonne - 1;
 
 	size_t iMax = ligne + 1 == NB_LIGNES ? NB_LIGNES - 1 : ligne + 1;
 	size_t jMax = colonne + 1 == NB_COLONNES ? NB_COLONNES - 1 : colonne + 1;
 
 	for (; i <= iMax; ++i) {
-		for (; j <= jMax; ++j) {
-			nbBoucle++;
+		for (size_t j = valInitialeJ; j <= jMax; ++j) {
 			// Passer le tour de boucle s'il s'agit de la cellule analysée
 			if (i == ligne && j == colonne) {
 				continue;
