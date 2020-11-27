@@ -19,7 +19,7 @@ using namespace std;
 
 int main() {
 	CONFIG_INITIALES config = CONFIG_INITIALES::TETRAMINO_T;
-	const int NB_GENERATIONS = 2; // -1: boucle du jeu infinie
+	const int NB_GENERATIONS = 11; // -1: boucle du jeu infinie
 	jeuDeLaVie(config, NB_GENERATIONS);
 
 	return EXIT_SUCCESS;
