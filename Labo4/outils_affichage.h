@@ -5,6 +5,7 @@
 #ifndef LABO4_OUTILS_AFFICHAGE_H
 #define LABO4_OUTILS_AFFICHAGE_H
 
-void afficherGrille(const Grille &grille, char vivant, char mort, int espacement);
+void afficherGrille(const Grille &grille, char caractereVivante, char
+caractereMorte, int espacement);
 
 #endif //LABO4_OUTILS_AFFICHAGE_H

@@ -9,11 +9,13 @@
 
 using namespace std;
 
-void afficherGrille(const Grille &grille, char vivante, char morte, int espacement) {
+void afficherGrille(const Grille &grille, char caractereVivante, char
+caractereMorte, int espacement) {
 	for (const Ligne &ligne : grille) {
-		for (EtatsCellules val : ligne) {
-			cout << (val == EtatsCellules::VIVANTE ? vivante : morte)
-				  << setw(espacement + 1);
+		for (size_t i = 0; i < ligne.size(); ++i) {
+			int largeur = i > 0 ? espacement + 1 : espacement;
+			cout << setw(largeur)
+				  << (ligne.at(i) == EtatsCellules::VIVANTE ? vivante : morte);
 		}
 		cout << endl;
 	}
