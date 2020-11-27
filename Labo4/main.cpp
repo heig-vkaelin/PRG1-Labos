@@ -13,14 +13,16 @@ Compilateur    : Mingw-w64 g++ 8.1.0
 */
 
 #include <cstdlib>
-#include "logique.h"
-
-using namespace std;
+#include "polyominos.h"
+#include "outils_jeu_vie.h"
 
 int main() {
-	CONFIG_INITIALES config = CONFIG_INITIALES::TETRAMINO_T;
-	const int NB_GENERATIONS = 11; // -1: boucle du jeu infinie
-	jeuDeLaVie(config, NB_GENERATIONS);
+	ConfigInitiales config = ConfigInitiales::TETRAMINO_T;
+	const unsigned NB_GENERATIONS = 11;
+	const unsigned NB_LIGNES = 10;
+	const unsigned NB_COLONNES = 11;
+
+	jeuDeLaVie(config, NB_GENERATIONS, NB_LIGNES, NB_COLONNES);
 
 	return EXIT_SUCCESS;
 }
