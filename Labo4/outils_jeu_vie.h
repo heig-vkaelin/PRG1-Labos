@@ -48,33 +48,38 @@ void jeuDeLaVie(Configuration &configuration, unsigned nbGenerations,
 					 char caractereMorte, unsigned espacementHorizontal);
 
 /**
- *
- * @param cellule
- * @return
+ * Confirme l'état de la cellule pour la prochaine génération:
+ * transforme les cellules naissante en vivante et les mourantes en mortes.
+ * @param cellule : valeur initiale de la cellule
+ * @return la nouvelle valeur de la cellule
  */
 EtatsCellules confirmerEtatCellule(EtatsCellules cellule);
 
 /**
- *
- * @param grille
+ * Actualise l'état de chaque cellule de la grille pour la prochaine génération.
+ * @param grille : grille du jeu
  */
 void nouvelleGenerationGrille(Grille &grille);
 
 /**
- *
- * @param grille
- * @param ligne
- * @param colonne
- * @return
+ * Met à jour l'état d'une cellule choisie en fonction de son état actuel ainsi
+ * que du nombre de cellules occupées parmi ses voisins.
+ * @param grille : grille du jeu
+ * @param ligne : ligne de la cellule
+ * @param colonne : colonne de la cellule
+ * @return nouvelle valeur de la cellule
  */
 EtatsCellules actualiserEtatCellule(Grille &grille, size_t ligne, size_t colonne);
 
 /**
- *
- * @param grille
- * @param ligneInitiale
- * @param colonneInitiale
- * @return
+ * Calcule le nombre de cellules voisines qui sont vivantes (chaque cellule a 8
+ * cellules voisines, exception faite pour les cellules étant au bord de la grille).
+ * @param grille : grille du jeu
+ * @param ligneInitiale : ligne de la cellule dont on veut calculer les voisins
+ * vivants
+ * @param colonneInitiale : colonne de la cellule dont on veut calculer les
+ * voisins vivant
+ * @return le nombre de cellules voisines vivantes
  */
 unsigned nombreCellulesVoisinesOccupees(Grille &grille, size_t ligneInitiale,
 													 size_t colonneInitiale);

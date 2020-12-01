@@ -17,7 +17,7 @@ Compilateur    : Mingw-w64 g++ 8.1.0
 
 /**
  * Affiche la grille du jeu, avec des caractères à choix pour les cellules
- * vivantes et morte.
+ * vivantes et mortes.
  * @param grille : grille du jeu
  * @param caractereVivante : caractère à afficher si la cellule est vivante
  * @param caractereMorte : caractère à afficher si la cellule est morte
