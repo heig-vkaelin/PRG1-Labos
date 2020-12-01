@@ -4,15 +4,25 @@ Nom du fichier : outils_jeu_vie.cpp
 Auteur(s)      : Jonathan Friedli, Valentin Kaelin, Lazar Pavicevic
 Date creation  : 01.12.2020
 
-Description    :
+Description    : Fichier contenant toute l'implémentation concernant le
+                 fonctionnement du jeu de la vie.
 
-Remarque(s)    :
+Remarque(s)    : Dans l'actualisation de la grille, nous utilisons deux sous-états:
+                 mourante et naissante. Ces sous-états sont nécessaires pour que
+                 le calcul des voisins vivants de chaque cellule ne soit pas faussé.
+                 En effet, si nous tuons une cellule instantanément, la cellule
+                 voisine qui aurait peut-être pu survivre grâce à cette cellule
+                 risque de mourir également.
+                 Nous utilisons des vecteurs à deux dimensions pour la grille de
+                 jeu afin que l'utilisateur puisse changer la taille de la grille
+                 facilement.
+                 Nous passons toujours la grille par référence dans les diverses
+                 fonctions afin d'éviter de faire des copies inutiles.
 
 Compilateur    : Mingw-w64 g++ 8.1.0
 -----------------------------------------------------------------------------------
 */
 
-#include <iostream>
 #include <algorithm>
 #include "outils_jeu_vie.h"
 #include "outils_affichage.h"

@@ -4,9 +4,17 @@ Nom du fichier : outils_jeu_vie.h
 Auteur(s)      : Jonathan Friedli, Valentin Kaelin, Lazar Pavicevic
 Date creation  : 01.12.2020
 
-Description    :
+Description    : Fichier d'en-tête contenant les prototypes des fonctions ainsi
+                 que les énumérations et types du fichier outils_jeu_vie.cpp.
 
-Remarque(s)    :
+Remarque(s)    : L'énumération des états des cellules contient deux états
+                 principaux: morte et vivante ainsi que deux sous-états: mourante
+                 et naissante. Ces sous-états sont nécessaires pour que le calcul
+                 des voisins vivants de chaque cellule ne soit pas faussé.
+
+                 Les constantes concernant les règles de survie et de mort des
+                 cellules ne devraient pas être modifiées afin de respecter
+                 l'implémentation du jeu de la vie de J. H. Conway.
 
 Compilateur    : Mingw-w64 g++ 8.1.0
 -----------------------------------------------------------------------------------
@@ -35,13 +43,14 @@ using Grille = std::vector<Ligne>;
 /**
  * Lance un nombre de générations du jeu de la vie avec une configuration de
  * polyomino initiale et une grille modifiable.
- * @param configuration Coordonnées du polyomino à créer pour la première génération
- * @param nbGenerations Nombre de générations à effectuer et à afficher
- * @param nbLignes Nombre de lignes à afficher pour la grille
- * @param nbColonnes Nombre de colonnes à afficher pour la grille
- * @param caractereVivante Caractère représentant les cellules vivantes
- * @param caractereMorte Caractère représentant les cellules mortes
- * @param espacementHorizontal Nombre d'espace horizontal entre chaque cellule
+ * @param configuration : coordonnées du polyomino à créer pour la première
+ * génération
+ * @param nbGenerations : nombre de générations à effectuer et à afficher
+ * @param nbLignes : nombre de lignes à afficher pour la grille
+ * @param nbColonnes : nombre de colonnes à afficher pour la grille
+ * @param caractereVivante : caractère représentant les cellules vivantes
+ * @param caractereMorte : caractère représentant les cellules mortes
+ * @param espacementHorizontal : nombre d'espace horizontal entre chaque cellule
  */
 void jeuDeLaVie(Configuration &configuration, unsigned nbGenerations,
 					 unsigned nbLignes, unsigned nbColonnes, char caractereVivante,
@@ -84,4 +93,4 @@ EtatsCellules actualiserEtatCellule(Grille &grille, size_t ligne, size_t colonne
 unsigned nombreCellulesVoisinesOccupees(Grille &grille, size_t ligneInitiale,
 													 size_t colonneInitiale);
 
-#endif //LABO4_OUTILS_JEU_VIE_H
+#endif // LABO4_OUTILS_JEU_VIE_H
