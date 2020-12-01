@@ -16,11 +16,12 @@ Compilateur    : Mingw-w64 g++ 8.1.0
 #define LABO4_OUTILS_AFFICHAGE_H
 
 /**
- *
- * @param grille
- * @param caractereVivante
- * @param caractereMorte
- * @param espacementHorizontal
+ * Affiche la grille du jeu, avec des caractères à choix pour les cellules
+ * vivantes et morte.
+ * @param grille : grille du jeu
+ * @param caractereVivante : caractère à afficher si la cellule est vivante
+ * @param caractereMorte : caractère à afficher si la cellule est morte
+ * @param espacementHorizontal : nombre d'espace entre les cellules
  */
 void afficherGrille(const Grille &grille, char caractereVivante, char
 caractereMorte, unsigned espacementHorizontal);
