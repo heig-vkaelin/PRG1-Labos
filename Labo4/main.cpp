@@ -44,11 +44,11 @@ int main() {
 
 	return EXIT_SUCCESS;
 }
+
 /**
  * Question complémentaire: Que peut-on observer dans les résultats obtenus ?
  *
  * On remarque qu'à partir de 9 générations après la configuration initiale, deux
- * générations s'alternent à l'infini.
- * Ces deux générations sont un rond et une croix et la première des deux est le
- * rond.
+ * générations s'alternent à l'infini, c'est ce qu'on appelle un oscillateur.
+ * Ces deux générations sont un rond et une croix, en commençant par le rond.
  */

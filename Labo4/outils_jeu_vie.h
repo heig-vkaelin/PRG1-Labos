@@ -4,17 +4,15 @@ Nom du fichier : outils_jeu_vie.h
 Auteur(s)      : Jonathan Friedli, Valentin Kaelin, Lazar Pavicevic
 Date creation  : 01.12.2020
 
-Description    : Fichier d'en-tête contenant les prototypes des fonctions ainsi
-                 que les énumérations et types du fichier outils_jeu_vie.cpp.
+Description    : Module contenant la logique concernant le jeu de la vie. Permet
+                 de créer un nombre de générations de grille en partant d'une
+                 configuration initiale. Toute la configuration initiale est
+                 configurable par l'utilisateur.
 
 Remarque(s)    : L'énumération des états des cellules contient deux états
                  principaux: morte et vivante ainsi que deux sous-états: mourante
                  et naissante. Ces sous-états sont nécessaires pour que le calcul
                  des voisins vivants de chaque cellule ne soit pas faussé.
-
-                 Les constantes concernant les règles de survie et de mort des
-                 cellules ne devraient pas être modifiées afin de respecter
-                 l'implémentation du jeu de la vie de J. H. Conway.
 
 Compilateur    : Mingw-w64 g++ 8.1.0
 -----------------------------------------------------------------------------------
@@ -25,16 +23,12 @@ Compilateur    : Mingw-w64 g++ 8.1.0
 
 #include <vector>
 
-enum class EtatsCellules {
+enum class EtatsCellules : unsigned char {
 	MORTE,
 	VIVANTE,
 	MOURANTE,
 	NAISSANTE
 };
-
-const int NB_MIN_SURVIE = 2;
-const int NB_MAX_SURVIE = 3;
-const int NB_POUR_NAISSANCE = 3;
 
 using Configuration = std::vector<std::vector<size_t>>;
 using Ligne = std::vector<EtatsCellules>;

@@ -16,8 +16,15 @@ Remarque(s)    : Dans l'actualisation de la grille, nous utilisons deux sous-ét
                  Nous utilisons des vecteurs à deux dimensions pour la grille de
                  jeu afin que l'utilisateur puisse changer la taille de la grille
                  facilement.
+                 Nous utilisons des vecteurs de unsigned char car les états
+                 possibles pour les cellules sont limités et nous ne faisons pas
+                 d'opérations arithmétiques dessus. Ce qui nous permet d'optimiser
+                 la taille en mémoire de la grille.
                  Nous passons toujours la grille par référence dans les diverses
                  fonctions afin d'éviter de faire des copies inutiles.
+                 Les constantes concernant les règles de survie et de mort des
+                 cellules ne devraient pas être modifiées afin de respecter
+                 l'implémentation du jeu de la vie de J. H. Conway.
 
 Compilateur    : Mingw-w64 g++ 8.1.0
 -----------------------------------------------------------------------------------
@@ -28,6 +35,10 @@ Compilateur    : Mingw-w64 g++ 8.1.0
 #include "outils_affichage.h"
 
 using namespace std;
+
+constexpr int NB_MIN_SURVIE = 2;
+constexpr int NB_MAX_SURVIE = 3;
+constexpr int NB_POUR_NAISSANCE = 3;
 
 void jeuDeLaVie(Configuration &configuration, unsigned nbGenerations,
 					 unsigned nbLignes, unsigned nbColonnes, char caractereVivante,
