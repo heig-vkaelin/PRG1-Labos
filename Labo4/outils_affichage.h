@@ -27,7 +27,7 @@ Compilateur    : Mingw-w64 g++ 8.1.0
  * @param caractereMorte : caractère à afficher si la cellule est morte
  * @param espacementHorizontal : nombre d'espace entre les cellules
  */
-void afficherGrille(const Grille &grille, char caractereVivante, char
-caractereMorte, unsigned espacementHorizontal);
+void afficherGrille(const Grille &grille, char caractereVivante,
+						  char caractereMorte, unsigned espacementHorizontal);
 
 #endif // LABO4_OUTILS_AFFICHAGE_H
