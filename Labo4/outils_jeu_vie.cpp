@@ -22,6 +22,7 @@ using namespace std;
 void jeuDeLaVie(Configuration &configuration, unsigned nbGenerations,
 					 unsigned nbLignes, unsigned nbColonnes, char caractereVivante,
 					 char caractereMorte, unsigned espacementHorizontal) {
+
 	Grille grille = {nbLignes, Ligne(nbColonnes)};
 
 	// Application de la configuration initiale choisie

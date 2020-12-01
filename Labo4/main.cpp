@@ -23,6 +23,7 @@ int main() {
 	const char MORTE = '.';
 	const unsigned ESPACEMENT_HORIZONTAL = 1;
 
+	// Coordonnées d'un Tétramino centré pour une grille 10x11
 	Configuration configuration = {
 		{4, 4},
 		{4, 5},

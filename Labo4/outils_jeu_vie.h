@@ -33,14 +33,15 @@ using Ligne = std::vector<EtatsCellules>;
 using Grille = std::vector<Ligne>;
 
 /**
- *
- * @param configuration
- * @param nbGenerations
- * @param nbLignes
- * @param nbColonnes
- * @param caractereVivante
- * @param caractereMorte
- * @param espacementHorizontal
+ * Lance un nombre de générations du jeu de la vie avec une configuration de
+ * polyomino initiale et une grille modifiable.
+ * @param configuration Coordonnées du polyomino à créer pour la première génération
+ * @param nbGenerations Nombre de générations à effectuer et à afficher
+ * @param nbLignes Nombre de lignes à afficher pour la grille
+ * @param nbColonnes Nombre de colonnes à afficher pour la grille
+ * @param caractereVivante Caractère représentant les cellules vivantes
+ * @param caractereMorte Caractère représentant les cellules mortes
+ * @param espacementHorizontal Nombre d'espace horizontal entre chaque cellule
  */
 void jeuDeLaVie(Configuration &configuration, unsigned nbGenerations,
 					 unsigned nbLignes, unsigned nbColonnes, char caractereVivante,
