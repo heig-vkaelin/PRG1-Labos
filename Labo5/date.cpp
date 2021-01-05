@@ -147,24 +147,21 @@ string Date::operator()(const std::string &format) const {
 }
 
 int Date::nombreJoursDepuisDebutCalendrierGregorien(const Date &date) {
-	// 1er jour calendrier Grégorien: 15.10.1582
 	int nbJours;
-	const unsigned PREMIERE_ANNEE = 1582;
-	const unsigned PREMIER_MOIS = 10;
-	const int DECALAGE_PREMIER_JOUR = -14;
+	const Date PREMIER_JOUR = Date(15, 10, 1582); // 1er jour du calendrier Grégorien
 	const unsigned JOURS_RESTANTS_PREMIERE_ANNEE = 17 + 30 + 31; // octobre->décembre
 
 	// Jours depuis le 15 octobre jusqu'à la date (en 1582)
-	if (date.getAnnee() == PREMIERE_ANNEE) {
-		nbJours = DECALAGE_PREMIER_JOUR + (int) date.getJour();
-		for (unsigned i = PREMIER_MOIS; i < date.getMois(); ++i) {
+	if (date.getAnnee() == PREMIER_JOUR.getAnnee()) {
+		nbJours = (int) date.getJour() - (int) PREMIER_JOUR.getJour() + 1;
+		for (unsigned i = PREMIER_JOUR.getMois(); i < date.getMois(); ++i) {
 			nbJours += (int) nbJoursParMois(i, date.getAnnee());
 		}
 		return nbJours;
 	}
 
 	nbJours = (int) (JOURS_RESTANTS_PREMIERE_ANNEE + date.getJour());
-	for (unsigned i = PREMIERE_ANNEE + 1; i < date.getAnnee(); ++i) {
+	for (unsigned i = PREMIER_JOUR.getAnnee() + 1; i < date.getAnnee(); ++i) {
 		nbJours += estBissextile(i) ? 366 : 365;
 	}
 
