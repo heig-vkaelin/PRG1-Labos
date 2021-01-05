@@ -15,21 +15,15 @@ Compilateur    : Mingw-w64 g++ 8.1.0
 #ifndef LABO5_DATE_H
 #define LABO5_DATE_H
 
+#include <string>
+#include <iostream>
+
 enum class Mois {
 	JANVIER = 1, FEVRIER, MARS, AVRIL, MAI, JUIN, JUILLET, AOUT,
 	SEPTEMBRE, OCTOBRE, NOVEMBRE, DECEMBRE
 };
 
 class Date {
-public:
-	Date(unsigned jour, unsigned mois, unsigned annee);
-
-	unsigned getJour() const;
-
-	unsigned getMois() const;
-
-	unsigned getAnnee() const;
-
 	friend bool operator<(const Date &lhs, const Date &rhs);
 
 	friend bool operator>(const Date &lhs, const Date &rhs);
@@ -42,12 +36,42 @@ public:
 
 	friend bool operator!=(const Date &lhs, const Date &rhs);
 
+	friend Date operator+(Date lhs, unsigned nbJours);
+
+	friend Date operator-(Date lhs, unsigned nbJours);
+
+	friend int operator-(const Date &lhs, const Date &rhs);
+
+	friend std::ostream &operator<<(std::ostream &lhs, const Date &rhs);
+
+public:
+	Date(unsigned jour, unsigned mois, unsigned annee);
+
+	unsigned getJour() const;
+
+	unsigned getMois() const;
+
+	unsigned getAnnee() const;
+
+	Date &operator++();
+
+	Date operator++(int);
+
+	Date &operator+=(unsigned nbJours);
+
+	Date &operator--();
+
+	Date operator--(int);
+
+	Date &operator-=(unsigned nbJours);
+
+	std::string operator()(const std::string &format = "") const;
+
+	static int nombreJoursDepuisDebutCalendrierGregorien(const Date &date);
+
 private:
 	unsigned jour, mois, annee;
+
 };
-
-long long nombreJoursDepuisDebutCalendrierGregorien(const Date &date);
-
-long long nombreJoursEntreDeuxDates(const Date &date1, const Date &date2);
 
 #endif // LABO5_DATE_H
