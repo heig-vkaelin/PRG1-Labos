@@ -20,5 +20,15 @@ using namespace std;
 
 int main() {
 	cout << "Hello from Labo5" << endl;
+
+	Date date1(15, 10, 1582);
+
+	Date date2(14, 11, 2020);
+
+	Date date3(14, 10, 1581);
+
+	cout << nombreJoursDepuisDebutCalendrierGregorien(date3) << endl;
+//	cout << nombreJoursEntreDeuxDates(date2, date1) << endl;
+
 	return EXIT_SUCCESS;
 }
