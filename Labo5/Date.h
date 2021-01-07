@@ -6,7 +6,9 @@ Date creation  : 05.01.2021
 
 Description    :
 
-Remarque(s)    :
+Remarque(s)    : La classe Date est utilisable uniquement dans le calendrier
+                 Grégorien. Celui-ci commence le 15 octobre 1582.
+                 La validité des paramètres des diverses méthodes n'est pas vérifiée.
 
 Compilateur    : Mingw-w64 g++ 8.1.0
 -----------------------------------------------------------------------------------
@@ -65,13 +67,10 @@ public:
 
 	Date &operator-=(unsigned nbJours);
 
-	std::string operator()(const std::string &format = "") const;
-
-	static int nombreJoursDepuisDebutCalendrierGregorien(const Date &date);
+	std::string operator()(const std::string &format = "jj.mm.aaaa") const;
 
 private:
 	unsigned jour, mois, annee;
-
 };
 
 #endif // LABO5_DATE_H

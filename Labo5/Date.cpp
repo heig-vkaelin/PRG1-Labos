@@ -4,7 +4,7 @@ Nom du fichier : date.cpp
 Auteur(s)      : Jonathan Friedli, Valentin Kaelin, Lazar Pavicevic
 Date creation  : 05.01.2021
 
-Description    :
+Description    : Fichier contenant l'implémentation de la classe Date.
 
 Remarque(s)    : La classe Date utilisable uniquement calendrier Grégorien
 
@@ -12,7 +12,7 @@ Compilateur    : Mingw-w64 g++ 8.1.0
 -----------------------------------------------------------------------------------
 */
 
-#include "date.h"
+#include "Date.h"
 
 using namespace std;
 
@@ -34,14 +34,46 @@ unsigned nbJoursParMois(unsigned noMois, unsigned annee) {
 	}
 }
 
+int nbJoursDepuisDebutCalendrierGregorien(const Date &date) {
+	int nbJours;
+	const Date PREMIER_JOUR = Date(15, 10, 1582); // 1er jour du calendrier Grégorien
+	const unsigned JOURS_RESTANTS_PREMIERE_ANNEE = 17 + 30 + 31; // octobre->décembre
+
+	// Jours depuis le 15 octobre jusqu'à la date (en 1582)
+	if (date.getAnnee() == PREMIER_JOUR.getAnnee()) {
+		nbJours = (int) date.getJour() - (int) PREMIER_JOUR.getJour() + 1;
+		for (unsigned i = PREMIER_JOUR.getMois(); i < date.getMois(); ++i) {
+			nbJours += (int) nbJoursParMois(i, date.getAnnee());
+		}
+		return nbJours;
+	}
+
+	nbJours = (int) (JOURS_RESTANTS_PREMIERE_ANNEE + date.getJour());
+	for (unsigned i = PREMIER_JOUR.getAnnee() + 1; i < date.getAnnee(); ++i) {
+		nbJours += estBissextile(i) ? 366 : 365;
+	}
+
+	for (unsigned i = 1; i < date.getMois(); ++i) {
+		nbJours += (int) nbJoursParMois(i, date.getAnnee());
+	}
+
+	return nbJours;
+}
+
 Date::Date(unsigned jour, unsigned mois, unsigned annee)
 	: jour(jour), mois(mois), annee(annee) {}
 
-unsigned Date::getJour() const { return jour; }
+unsigned Date::getJour() const {
+	return jour;
+}
 
-unsigned Date::getMois() const { return mois; }
+unsigned Date::getMois() const {
+	return mois;
+}
 
-unsigned Date::getAnnee() const { return annee; }
+unsigned Date::getAnnee() const {
+	return annee;
+}
 
 bool operator<(const Date &lhs, const Date &rhs) {
 	if (lhs.annee != rhs.annee)
@@ -51,21 +83,28 @@ bool operator<(const Date &lhs, const Date &rhs) {
 	return lhs.jour < rhs.jour;
 }
 
-bool operator>(const Date &lhs, const Date &rhs) { return rhs < lhs; }
+bool operator>(const Date &lhs, const Date &rhs) {
+	return rhs < lhs;
+}
 
-bool operator<=(const Date &lhs, const Date &rhs) { return !(lhs > rhs); }
+bool operator<=(const Date &lhs, const Date &rhs) {
+	return !(lhs > rhs);
+}
 
-bool operator>=(const Date &lhs, const Date &rhs) { return !(lhs < rhs); }
+bool operator>=(const Date &lhs, const Date &rhs) {
+	return !(lhs < rhs);
+}
 
 bool operator==(const Date &lhs, const Date &rhs) {
 	return lhs.annee == rhs.annee && lhs.mois == rhs.mois && lhs.jour == rhs.jour;
 }
 
-bool operator!=(const Date &lhs, const Date &rhs) { return !(lhs == rhs); }
+bool operator!=(const Date &lhs, const Date &rhs) {
+	return !(lhs == rhs);
+}
 
 Date &Date::operator++() {
-	*this += 1;
-	return *this;
+	return *this += 1;
 }
 
 Date Date::operator++(int) {
@@ -91,8 +130,7 @@ Date &Date::operator+=(unsigned int nbJours) {
 }
 
 Date &Date::operator--() {
-	*this -= 1;
-	return *this;
+	return *this -= 1;
 }
 
 Date Date::operator--(int) {
@@ -119,14 +157,13 @@ Date operator-(Date lhs, unsigned int nbJours) {
 }
 
 int operator-(const Date &lhs, const Date &rhs) {
-	int joursDate1 = Date::nombreJoursDepuisDebutCalendrierGregorien(lhs);
-	int joursDate2 = Date::nombreJoursDepuisDebutCalendrierGregorien(rhs);
-	return joursDate1 - joursDate2;
+	int nbJoursDate1 = nbJoursDepuisDebutCalendrierGregorien(lhs);
+	int nbJoursDate2 = nbJoursDepuisDebutCalendrierGregorien(rhs);
+	return nbJoursDate1 - nbJoursDate2;
 }
 
 ostream &operator<<(ostream &lhs, const Date &rhs) {
-	lhs << rhs();
-	return lhs;
+	return lhs << rhs();
 }
 
 string Date::operator()(const std::string &format) const {
@@ -142,32 +179,6 @@ string Date::operator()(const std::string &format) const {
 		return strAnnee + "-" + strMois + "-" + strJour;
 	}
 
-	// jj.mm.aaaa
+	// Format par défaut: jj.mm.aaaa
 	return strJour + "." + strMois + "." + strAnnee;
-}
-
-int Date::nombreJoursDepuisDebutCalendrierGregorien(const Date &date) {
-	int nbJours;
-	const Date PREMIER_JOUR = Date(15, 10, 1582); // 1er jour du calendrier Grégorien
-	const unsigned JOURS_RESTANTS_PREMIERE_ANNEE = 17 + 30 + 31; // octobre->décembre
-
-	// Jours depuis le 15 octobre jusqu'à la date (en 1582)
-	if (date.getAnnee() == PREMIER_JOUR.getAnnee()) {
-		nbJours = (int) date.getJour() - (int) PREMIER_JOUR.getJour() + 1;
-		for (unsigned i = PREMIER_JOUR.getMois(); i < date.getMois(); ++i) {
-			nbJours += (int) nbJoursParMois(i, date.getAnnee());
-		}
-		return nbJours;
-	}
-
-	nbJours = (int) (JOURS_RESTANTS_PREMIERE_ANNEE + date.getJour());
-	for (unsigned i = PREMIER_JOUR.getAnnee() + 1; i < date.getAnnee(); ++i) {
-		nbJours += estBissextile(i) ? 366 : 365;
-	}
-
-	for (unsigned i = 1; i < date.getMois(); ++i) {
-		nbJours += (int) nbJoursParMois(i, date.getAnnee());
-	}
-
-	return nbJours;
 }
