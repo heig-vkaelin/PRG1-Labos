@@ -10,7 +10,7 @@ Description    : Fichier principal du programme permettant de tester le bon
 Remarque(s)    : Utilisation de la compilation séparée pour améliorer la
                  lisibilité du code.
                  Format de l'affichage des tests:
-                 valeur obtenu  <-> valeur attendue
+                 valeur obtenue  <-> valeur attendue
 
 Compilateur    : Mingw-w64 g++ 8.1.0
 -----------------------------------------------------------------------------------
